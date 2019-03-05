@@ -127,6 +127,23 @@
                     <Anchor point="BOTTOMRIGHT" x="-15" y="30"/>
                 </Anchors> 
                 <Layers>
+                    <Layer level="BACKGROUND"> 
+                        <Texture parentKey="classBackground">
+                            <Anchors>
+                                <Anchor point="TOPLEFT" relativeTo="CleanUIDataStoreFrame" relativePoint="TOPLEFT">
+                                    <Offset>
+                                        <AbsDimension x="4" y="-65"/>
+                                    </Offset>
+                                </Anchor>
+                                <Anchor point="BOTTOMRIGHT" relativeTo="CleanUIDataStoreFrame" relativePoint="BOTTOMRIGHT">
+                                    <Offset>
+                                        <AbsDimension x="30" y="20"/>
+                                    </Offset>
+                                </Anchor>
+                            </Anchors>
+                        </Texture>
+                    </Layer> 
+
                     <Layer level="ARTWORK"> 
                            
                         <!-- basics -->    

@@ -253,8 +253,8 @@
 		            
                     <Frame parentKey="items" inherits="CleanUIDataStoreDataFrameTemplate">
                         <Anchors>
-                            <Anchor point="TOPLEFT" x="-4" y="-27"/>
-                            <Anchor point="BOTTOMRIGHT" x="-7" y="0"/>
+                            <Anchor point="TOPLEFT" x="-15" y="-27"/>
+                            <Anchor point="BOTTOMRIGHT" x="-7" y="-30"/>
                         </Anchors>
         
                         <Scripts>

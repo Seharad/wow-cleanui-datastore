@@ -235,6 +235,8 @@ function CleanUI_DataStoreUIUpdateCharacterSelection()
     -- race icon
     local raceEn = baseData.raceEn or "Orc";
     info.raceicon:SetTexture("interface\\AddOns\\CleanUI_DataStore\\skins\\races\\"..strlower(raceEn));
+    info.classBackground:SetTexture("interface\\DressupFrame\\DressingRoom"..baseData.class.englishClass);
+    info.classBackground:SetAlpha(0.7);
 
     -- name + title
     info.name:SetText(HIGHLIGHT_FONT_COLOR_CODE..baseData.pvpName..FONT_COLOR_CODE_CLOSE);

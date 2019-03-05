@@ -300,8 +300,8 @@
       
     <Frame name="CleanUIDataStoreDataFrameTemplate" virtual="true" hidden="true">
         <Anchors>
-            <Anchor point="TOPLEFT" x="5" y="-60"/>
-            <Anchor point="BOTTOMRIGHT" x="-5" y="27"/>
+            <Anchor point="TOPLEFT" x="9" y="-60"/>
+            <Anchor point="BOTTOMRIGHT" x="-5" y="29"/>
         </Anchors>
         
         <Frames>

@@ -434,7 +434,7 @@ function CleanUI_CollectMailData()
 
     local packageIcon, stationeryIcon, sender, subject, money, CODAmount, daysLeft, hasItem, wasRead, wasReturned, textCreated, canReply, isGM;
     local messageText;
-    local itemName, itemTexture, itemCount, itemQuality, itemLink;
+    local itemName, itemID, itemTexture, itemCount, itemQuality, itemLink;
 
     local expireDate;
     local currentTime = time();
@@ -467,7 +467,7 @@ function CleanUI_CollectMailData()
             for j = 1, data[i].hasItem do
                 data[i].items[j] = {};
 
-                itemName, itemTexture, itemCount = GetInboxItem(i, j);
+                itemName, itemID, itemTexture, itemCount = GetInboxItem(i, j);
                 itemLink = GetInboxItemLink(i, j);
 
                 data[i].items[j].name = itemName;
