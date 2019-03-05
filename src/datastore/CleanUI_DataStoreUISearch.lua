@@ -2,7 +2,7 @@ local foundData = {};
 
 function CleanUI_InitDataStoreSearch()
     local searchFrame = CreateFrame("Frame", "CleanUIDataStoreSearchFrame", CleanUIDataStoreFrame, "CleanUIDataStoreSearchFrameTemplate");
-    CleanUI_SetBackdrop(searchFrame);
+    --CleanUI_SetBackdrop(searchFrame);
     searchFrame:SetSize(265, 550);
     searchFrame:ClearAllPoints();
     searchFrame:SetPoint("BOTTOMLEFT", CleanUIDataStoreFrame, "BOTTOMRIGHT", 60, 0);
@@ -11,6 +11,11 @@ function CleanUI_InitDataStoreSearch()
     HybridScrollFrame_OnLoad(CleanUIDataStoreSearchFrame.scrollFrame);
     CleanUIDataStoreSearchFrame.scrollFrame.update = CleanUI_DataStoreSearch_OnUpdate;
     HybridScrollFrame_CreateButtons(CleanUIDataStoreSearchFrame.scrollFrame, "CleanUIDataStoreSearchEntryTemplate");
+
+
+
+    CleanUIDataStoreSearchFramePortrait:SetTexture("Interface\\MailFrame\\Mail-Icon");
+    CleanUIDataStoreSearchFrameTitleText:SetText("Search");
 
     CleanUI_DataStoreSearch_OnUpdate();
 end
