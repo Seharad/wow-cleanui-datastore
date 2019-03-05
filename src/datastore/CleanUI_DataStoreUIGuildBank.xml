@@ -1,0 +1,95 @@
+<Ui xmlns="http://www.blizzard.com/wow/ui/" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://www.blizzard.com/wow/ui/
+..\FrameXML\UI.xsd">
+ 
+      
+    <Frame name="CleanUIDataStoreGuildBankFrame" parent="CleanUIDataStoreFrame" inherits="CleanUIDataStoreDataFrameTemplate">
+        <Frames>
+            <Frame name="$parentInfo" parentKey="info">
+                <Anchors>
+                    <Anchor point="TOPLEFT" x="15" y="-20"/>
+                    <Anchor point="BOTTOMRIGHT" x="-15" y="30"/>
+                </Anchors> 
+                <Layers>
+                </Layers>
+                <Frames> 
+                    <Frame name="$parentGuildDropDown" parentKey="guildDropDown" inherits="UIDropDownMenuTemplate">
+                        <Size>
+                            <AbsDimension x="350" y="20"/>
+                        </Size>
+                        <Anchors>
+                            <Anchor point="TOPLEFT" x="50" y="15"/>
+                        </Anchors>
+                        <Layers>
+                            <Layer level="ARTWORK">
+                                <FontString parentKey="label" inherits="GameFontNormalLeft" nonspacewrap="true" maxLines="1" justifyH="LEFT" justifyV="TOP">
+                                    <Anchors>
+                                        <Anchor point="RIGHT" relativeTo="$parent" relativePoint="LEFT">
+                                            <Offset>
+                                                <AbsDimension x="-5" y="3"/>
+                                            </Offset>
+                                        </Anchor>
+                                    </Anchors>
+                                </FontString>
+                            </Layer>
+                        </Layers>
+                        <Scripts>
+                            <OnLoad>
+                                self.label:SetText(GUILD..":");    
+                                UIDropDownMenu_SetWidth(self, 250);
+                            </OnLoad>
+                        </Scripts>
+                    </Frame> 
+                    
+                    <Frame name="$parentItemTypeDropDown" parentKey="typeDropDown" inherits="UIDropDownMenuTemplate">
+                        <Size>
+                            <AbsDimension x="350" y="20"/>
+                        </Size>
+                        <Anchors>
+                            <Anchor point="TOPLEFT" x="50" y="-10"/>
+                        </Anchors>
+                        <Layers>
+                            <Layer level="ARTWORK">
+                                <FontString parentKey="label" inherits="GameFontNormalLeft" nonspacewrap="true" maxLines="1" justifyH="LEFT" justifyV="TOP">
+                                    <Anchors>
+                                        <Anchor point="RIGHT" relativeTo="$parent" relativePoint="LEFT">
+                                            <Offset>
+                                                <AbsDimension x="-5" y="3"/>
+                                            </Offset>
+                                        </Anchor>
+                                    </Anchors>
+                                </FontString>
+                            </Layer>
+                        </Layers>
+                        <Scripts>
+                            <OnLoad>
+                                self.label:SetText(TYPE..":");    
+                                UIDropDownMenu_SetWidth(self, 250);
+                            </OnLoad>
+                        </Scripts>
+                    </Frame>
+                    
+                    <EditBox name="$parentFilterEditBox" inheritsBag="SearchBoxTemplate" letters="15" historyLines="0" autoFocus="false">
+                        <Size x="100" y="20"/>
+                        <Anchors>
+                            <Anchor point="TOPRIGHT" x="-10" y="0"/>
+                        </Anchors>
+                        <Scripts>
+                            <OnTextChanged function="CleanUI_DataStoreUIGuildSearch_OnTextChanged"/>
+                            <OnChar function="BagSearch_OnChar"/>
+                            <OnEnterPressed function="EditBox_ClearFocus"/>
+                            <OnEscapePressed function="EditBox_ClearFocus"/>
+                        </Scripts>
+                        <FontString inherits="ChatFontNormal"/>
+                    </EditBox>
+                </Frames>
+            </Frame>  
+        </Frames>
+        <Scripts>
+            <OnLoad>      
+                self.scrollFrame:SetPoint("TOPLEFT", 0, -60);         
+                CleanUI_DataStoreUI_InitScrollFrameWithTemplate(self, "CleanUIDataStoreBagItemsTemplate", CleanUI_DataStoreUIUpdateGuildBankData);
+            </OnLoad>
+        </Scripts>
+    </Frame>  
+
+</Ui>

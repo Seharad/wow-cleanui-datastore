@@ -1,0 +1,344 @@
+<Ui xmlns="http://www.blizzard.com/wow/ui/" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://www.blizzard.com/wow/ui/
+..\FrameXML\UI.xsd">
+    
+    <Button name="CleanUIDataStoreEquipmentSlotButtonTemplate" inherits="ItemButtonTemplate" virtual="true" hidden="true"> 
+        <Size>
+            <AbsDimension x="24" y="24"/>
+        </Size> 
+        <Scripts>
+            <OnEnter>
+                CleanUIDataStoreEquipmentSlot_OnEnter(self);
+            </OnEnter>
+            <OnLeave>
+                CleanUIDataStore_HideTooltip(self);
+            </OnLeave>
+            <OnClick>
+                CleanUIDataStoreEquipmentSlot_OnClick(self, button, down);
+            </OnClick>
+        </Scripts>
+    </Button> 
+
+    <Button name="CleanUIDataStoreEquipmentTemplate" virtual="true">   
+        <Size>
+            <AbsDimension x="650" y="30"/>
+        </Size> 
+        <Scripts>
+            <OnEnter>
+                CleanUIDataStoreEquipment_OnEnter(self);
+            </OnEnter>
+            <OnLeave>
+                CleanUIDataStore_HideTooltip(self);
+            </OnLeave>
+            <OnClick>
+                CleanUIDataStoreEquipment_OnClick(self, button, down);
+            </OnClick>
+        </Scripts>
+        
+        <Frames>      
+            <Button name="$parentItem1" inherits="CleanUIDataStoreEquipmentSlotButtonTemplate">
+                <Anchors>
+                    <Anchor point="LEFT" x="215" y="0"/>
+                </Anchors>
+            </Button>
+            <Button name="$parentItem2" inherits="CleanUIDataStoreEquipmentSlotButtonTemplate">
+                <Anchors>
+                    <Anchor point="LEFT" relativeTo="$parentItem1" relativePoint="RIGHT" x="1" y="0"/>
+                </Anchors>
+            </Button>
+            <Button name="$parentItem3" inherits="CleanUIDataStoreEquipmentSlotButtonTemplate">
+                <Anchors>
+                    <Anchor point="LEFT" relativeTo="$parentItem2" relativePoint="RIGHT" x="1" y="0"/>
+                </Anchors>
+            </Button>
+            <Button name="$parentItem4" inherits="CleanUIDataStoreEquipmentSlotButtonTemplate">
+                <Anchors>
+                    <Anchor point="LEFT" relativeTo="$parentItem3" relativePoint="RIGHT" x="1" y="0"/>
+                </Anchors>
+            </Button>
+            <Button name="$parentItem5" inherits="CleanUIDataStoreEquipmentSlotButtonTemplate">
+                <Anchors>
+                    <Anchor point="LEFT" relativeTo="$parentItem4" relativePoint="RIGHT" x="1" y="0"/>
+                </Anchors>
+            </Button>
+            <Button name="$parentItem6" inherits="CleanUIDataStoreEquipmentSlotButtonTemplate">
+                <Anchors>
+                    <Anchor point="LEFT" relativeTo="$parentItem5" relativePoint="RIGHT" x="1" y="0"/>
+                </Anchors>
+            </Button>
+            <Button name="$parentItem7" inherits="CleanUIDataStoreEquipmentSlotButtonTemplate">
+                <Anchors>
+                    <Anchor point="LEFT" relativeTo="$parentItem6" relativePoint="RIGHT" x="1" y="0"/>
+                </Anchors>
+            </Button>
+            <Button name="$parentItem8" inherits="CleanUIDataStoreEquipmentSlotButtonTemplate">
+                <Anchors>
+                    <Anchor point="LEFT" relativeTo="$parentItem7" relativePoint="RIGHT" x="1" y="0"/>
+                </Anchors>
+            </Button>
+            <Button name="$parentItem9" inherits="CleanUIDataStoreEquipmentSlotButtonTemplate">
+                <Anchors>
+                    <Anchor point="LEFT" relativeTo="$parentItem8" relativePoint="RIGHT" x="1" y="0"/>
+                </Anchors>
+            </Button>
+            <Button name="$parentItem10" inherits="CleanUIDataStoreEquipmentSlotButtonTemplate">
+                <Anchors>
+                    <Anchor point="LEFT" relativeTo="$parentItem9" relativePoint="RIGHT" x="1" y="0"/>
+                </Anchors>
+            </Button>
+            <Button name="$parentItem11" inherits="CleanUIDataStoreEquipmentSlotButtonTemplate">
+                <Anchors>
+                    <Anchor point="LEFT" relativeTo="$parentItem10" relativePoint="RIGHT" x="1" y="0"/>
+                </Anchors>
+            </Button>
+            <Button name="$parentItem12" inherits="CleanUIDataStoreEquipmentSlotButtonTemplate">
+                <Anchors>
+                    <Anchor point="LEFT" relativeTo="$parentItem11" relativePoint="RIGHT" x="1" y="0"/>
+                </Anchors>
+            </Button>
+            <Button name="$parentItem13" inherits="CleanUIDataStoreEquipmentSlotButtonTemplate">
+                <Anchors>
+                    <Anchor point="LEFT" relativeTo="$parentItem12" relativePoint="RIGHT" x="1" y="0"/>
+                </Anchors>
+            </Button>
+            <Button name="$parentItem14" inherits="CleanUIDataStoreEquipmentSlotButtonTemplate">
+                <Anchors>
+                    <Anchor point="LEFT" relativeTo="$parentItem13" relativePoint="RIGHT" x="1" y="0"/>
+                </Anchors>
+            </Button>
+            <Button name="$parentItem15" inherits="CleanUIDataStoreEquipmentSlotButtonTemplate">
+                <Anchors>
+                    <Anchor point="LEFT" relativeTo="$parentItem14" relativePoint="RIGHT" x="1" y="0"/>
+                </Anchors>
+            </Button>
+            <Button name="$parentItem16" inherits="CleanUIDataStoreEquipmentSlotButtonTemplate">
+                <Anchors>
+                    <Anchor point="LEFT" relativeTo="$parentItem15" relativePoint="RIGHT" x="1" y="0"/>
+                </Anchors>
+            </Button>
+        </Frames>
+
+        <ButtonText name="$parentName" nonspacewrap="true" parentKey="name">
+            <Size>
+                <AbsDimension x="0" y="10"/>
+            </Size>
+            <Anchors>
+                <Anchor point="LEFT" x="15" y="0"/>
+            </Anchors> 
+        </ButtonText>
+        
+        <NormalFont style="GameFontNormalLeft"/>
+        <HighlightFont style="GameFontHighlightLeft"/>
+        <DisabledFont style="GameFontHighlightLeft"/>
+    </Button>
+      
+    <Frame name="CleanUIDataStoreEquipmentFrame" parent="CleanUIDataStoreFrame" inherits="CleanUIDataStoreDataFrameTemplate">
+    
+        <Frames>
+            <Frame name="$parentInfo" parentKey="info" hidden="false">
+                <Anchors>
+                    <Anchor point="TOPLEFT" x="15" y="-220"/>
+                    <Anchor point="BOTTOMRIGHT" x="-15" y="30"/>
+                </Anchors> 
+                <Frames>
+		            <Button parentKey="ItemButton">
+		                <Size x="58" y="58"/>
+		                <Anchors>
+		                    <Anchor point="TOPRIGHT" x="-331" y="-5"/>
+		                </Anchors>
+		                <Layers>
+		                    <Layer level="BORDER">
+		                        <Texture parentKey="IconTexture"/>
+		                    </Layer>
+		                    <Layer level="BACKGROUND">
+		                        <Texture parentKey="Grabber" file="Interface\Transmogrify\Textures.png">
+		                            <Size x="20" y="49"/>
+		                            <Anchors>
+		                                <Anchor point="RIGHT" relativeKey="$parent.Frame" relativePoint="LEFT" x="2" y="0"/>
+		                            </Anchors>
+		                            <TexCoords left="0.00781250" right="0.16406250" top="0.58203125" bottom="0.67773438"/>
+		                        </Texture>
+		                        <Texture parentKey="TextFrame" file="Interface\Reforging\Reforge-Texture" >
+		                            <Size x="287" y="73"/>  
+		                            <TexCoords left="0.13281250" right="0.81250000" top="0.00781250" bottom="0.57812500"/>
+		                            <Anchors>
+		                                <Anchor point="LEFT" relativePoint="RIGHT" x="-10" />
+		                            </Anchors>
+		                        </Texture>
+		                        <Texture parentKey="TextGrabber" file="Interface\Transmogrify\Textures.png">
+		                            <Size x="20" y="49"/>
+		                            <Anchors>
+		                                <Anchor point="LEFT" relativeKey="$parent.TextFrame" relativePoint="RIGHT" x="40" y="0"/>
+		                            </Anchors>
+		                            <TexCoords right="0.00781250" left="0.16406250" top="0.58203125" bottom="0.67773438"/>
+		                        </Texture>
+		                    </Layer>
+		                    <Layer level="ARTWORK">
+		                        <FontString parentKey="ItemName" inherits="GameFontNormalSmall" justifyH="LEFT">
+		                            <Size x="250" y="12"/>
+		                            <Anchors>
+		                                <Anchor point="LEFT" relativePoint="RIGHT" x="10" y="14"/>
+		                            </Anchors>
+		                        </FontString>
+		                        <FontString parentKey="MissingText" inherits="GameFontNormalMed3" justifyH="LEFT" text="UPGRADE_MISSING_ITEM">
+		                            <Size x="250" y="30"/>
+		                            <Anchors>
+		                                <Anchor point="LEFT" relativePoint="RIGHT" x="10" y="14"/>
+		                            </Anchors>
+		                            <Color r="0.5" g="0.5" b="0.5" a="0.5"/>
+		                        </FontString>
+		                    </Layer>
+                            <Layer level="OVERLAY">
+                                <Texture parentKey="Frame" file="Interface\Reforging\Reforge-Texture">
+                                    <Size x="78" y="77"/>   
+                                    <TexCoords left="0.81640625" right="0.96875000" top="0.00781250" bottom="0.60937500"/>
+                                    <Anchors>
+                                        <Anchor point="CENTER"/>
+                                    </Anchors>
+                                </Texture>
+                            </Layer>
+                            <Layer level="OVERLAY">
+                                <Texture parentKey="Frame2" file="Interface\Reforging\Reforge-Texture">
+                                    <Size x="78" y="77"/>   
+                                    <TexCoords left="0.81640625" right="0.96875000" top="0.00781250" bottom="0.60937500"/>
+                                    <Anchors>
+                                        <Anchor point="CENTER" x="325"/>
+                                    </Anchors>
+                                </Texture>
+                            </Layer>
+		                </Layers>
+		                <Scripts>
+		                    <OnLoad>
+		                        self:RegisterForDrag("LeftButton");
+		                    </OnLoad>
+				            <OnEnter>
+				                CleanUIDataStoreEquipmentSlot_OnEnter(self);
+				            </OnEnter>
+				            <OnLeave>
+				                CleanUIDataStore_HideTooltip(self);
+				            </OnLeave>
+		                    <OnClick>
+		                        CleanUI_DataStoreEquipmentOnClick(self, button);
+		                    </OnClick>
+		                    <OnDragStart>
+		                        CleanUI_DataStoreEquipmentOnClick(self, button);
+		                    </OnDragStart>
+		                    <OnReceiveDrag>
+		                        CleanUI_DataStoreEquipmentOnClick(self, button);
+		                    </OnReceiveDrag>
+		                </Scripts>
+		                <PushedTexture file="Interface\Buttons\UI-Quickslot-Depress"/>
+		                <HighlightTexture file="Interface\Reforging\Reforge-Texture" alphaMode="ADD">
+		                    <Size x="67" y="67"/>   
+		                    <TexCoords left="0.00195313" right="0.12890625" top="0.00781250" bottom="0.51562500"/>  
+		                </HighlightTexture>
+		            </Button> 
+                    <Button parentKey="ItemButton2">
+                        <Size x="58" y="58"/>
+                        <Anchors>
+                            <Anchor point="TOPRIGHT" x="-6" y="-5"/>
+                        </Anchors>
+                        <Layers>
+                            <Layer level="BORDER">
+                                <Texture parentKey="IconTexture"/>
+                            </Layer>
+                            <Layer level="ARTWORK">
+                                <FontString parentKey="ItemName" inherits="GameFontNormalSmall" justifyH="RIGHT">
+                                    <Size x="250" y="12"/>
+                                    <Anchors>
+                                        <Anchor point="RIGHT" relativePoint="RIGHT" x="-68" y="-14"/>
+                                    </Anchors>
+                                </FontString>
+                            </Layer>
+                        </Layers>
+                        <Scripts>
+                            <OnEnter>
+                                CleanUIDataStoreEquipmentSlot_OnEnter(self);
+                            </OnEnter>
+                            <OnLeave>
+                                CleanUIDataStore_HideTooltip(self);
+                            </OnLeave>
+                        </Scripts>
+                    </Button>         
+		        </Frames>
+                <Layers>
+                    <Layer level="ARTWORK">
+                        <FontString name="$parentCompInfo" inherits="GameFontNormalSmall" maxLines="2" justifyH="LEFT" text="">
+                            <Size x="325" y="30"/>
+                            <Anchors>
+                                <Anchor point="TOPLEFT" relativeKey="$parent.ItemButton" relativePoint="BOTTOMLEFT" x="0" y="-5"/>
+                            </Anchors>
+                        </FontString>
+                        <FontString name="$parentCompValue1" inherits="GameFontNormalSmall" justifyH="LEFT" text="">
+                            <Size x="325" y="14"/>
+                            <Anchors>
+                                <Anchor point="TOPLEFT" relativeTo="$parentCompInfo" relativePoint="BOTTOMLEFT" x="0" y="0"/>
+                            </Anchors>
+                        </FontString>
+                        <FontString name="$parentCompValue2" inherits="GameFontNormalSmall" justifyH="LEFT" text="">
+                            <Size x="325" y="14"/>
+                            <Anchors>
+                                <Anchor point="TOPLEFT" relativeTo="$parentCompValue1" relativePoint="BOTTOMLEFT" x="0" y="0"/>
+                            </Anchors>
+                        </FontString>
+                        <FontString name="$parentCompValue3" inherits="GameFontNormalSmall" justifyH="LEFT" text="">
+                            <Size x="325" y="14"/>
+                            <Anchors>
+                                <Anchor point="TOPLEFT" relativeTo="$parentCompValue2" relativePoint="BOTTOMLEFT" x="0" y="0"/>
+                            </Anchors>
+                        </FontString>
+                        <FontString name="$parentCompValue4" inherits="GameFontNormalSmall" justifyH="LEFT" text="">
+                            <Size x="325" y="14"/>
+                            <Anchors>
+                                <Anchor point="TOPLEFT" relativeTo="$parentCompValue3" relativePoint="BOTTOMLEFT" x="0" y="0"/>
+                            </Anchors>
+                        </FontString>
+                        <FontString name="$parentCompValue5" inherits="GameFontNormalSmall" justifyH="LEFT" text="">
+                            <Size x="325" y="14"/>
+                            <Anchors>
+                                <Anchor point="TOPLEFT" relativeTo="$parentCompValue4" relativePoint="BOTTOMLEFT" x="0" y="0"/>
+                            </Anchors>
+                        </FontString>
+                        <FontString name="$parentCompValue6" inherits="GameFontNormalSmall" justifyH="LEFT" text="">
+                            <Size x="325" y="14"/>
+                            <Anchors>
+                                <Anchor point="TOPLEFT" relativeTo="$parentCompValue5" relativePoint="BOTTOMLEFT" x="0" y="0"/>
+                            </Anchors>
+                        </FontString>
+                        <FontString name="$parentCompValue7" inherits="GameFontNormalSmall" justifyH="LEFT" text="">
+                            <Size x="325" y="14"/>
+                            <Anchors>
+                                <Anchor point="TOPLEFT" relativeTo="$parentCompValue6" relativePoint="BOTTOMLEFT" x="0" y="0"/>
+                            </Anchors>
+                        </FontString>
+                        <FontString name="$parentCompValue8" inherits="GameFontNormalSmall" justifyH="LEFT" text="">
+                            <Size x="325" y="14"/>
+                            <Anchors>
+                                <Anchor point="TOPLEFT" relativeTo="$parentCompValue7" relativePoint="BOTTOMLEFT" x="0" y="0"/>
+                            </Anchors>
+                        </FontString>
+                        <FontString name="$parentCompValue9" inherits="GameFontNormalSmall" justifyH="LEFT" text="">
+                            <Size x="325" y="14"/>
+                            <Anchors>
+                                <Anchor point="TOPLEFT" relativeTo="$parentCompValue8" relativePoint="BOTTOMLEFT" x="0" y="0"/>
+                            </Anchors>
+                        </FontString>
+                        <FontString name="$parentCompValue10" inherits="GameFontNormalSmall" justifyH="LEFT" text="">
+                            <Size x="325" y="14"/>
+                            <Anchors>
+                                <Anchor point="TOPLEFT" relativeTo="$parentCompValue9" relativePoint="BOTTOMLEFT" x="0" y="0"/>
+                            </Anchors>
+                        </FontString>
+                    </Layer>
+                </Layers>
+		    </Frame>
+        </Frames>
+        
+        <Scripts>
+            <OnLoad>
+                self.scrollFrame:SetPoint("BOTTOMRIGHT", -22, 250);
+                CleanUI_DataStoreUI_InitScrollFrameWithTemplate(self, "CleanUIDataStoreEquipmentTemplate", CleanUI_DataStoreUIUpdateEquipmentData);
+            </OnLoad>
+        </Scripts>
+    </Frame> 
+
+</Ui>

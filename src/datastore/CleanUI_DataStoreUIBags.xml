@@ -1,0 +1,279 @@
+<Ui xmlns="http://www.blizzard.com/wow/ui/" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://www.blizzard.com/wow/ui/
+..\FrameXML\UI.xsd">
+      
+    <Button name="CleanUIDataStoreBagsTemplate" virtual="true">   
+        <Size>
+            <AbsDimension x="650" y="22"/>
+        </Size> 
+        <Scripts>
+            <OnEnter>
+                CleanUIDataStoreBags_OnEnter(self);
+            </OnEnter>
+            <OnLeave>
+                CleanUIDataStore_HideTooltip(self);
+            </OnLeave>
+            <OnClick>
+                CleanUIDataStoreBags_OnClick(self, button, down);
+            </OnClick>
+        </Scripts>
+        
+        <Frames>  
+        </Frames>  
+            
+        <Layers>
+            <Layer level="ARTWORK">
+                <FontString parentKey="level" inherits="GameFontNormalSmall" text="" justifyH="RIGHT" justifyV="MIDDLE">
+                    <Anchors>
+                        <Anchor point="RIGHT" relativeTo="$parent" relativePoint="LEFT">
+                            <Offset>
+                                <AbsDimension x="250" y="0"/>
+                            </Offset>
+                        </Anchor>
+                    </Anchors>
+                </FontString>
+                <FontString parentKey="bagsusage" inherits="GameFontNormalSmall" text="" justifyH="LEFT" justifyV="MIDDLE">
+                    <Anchors>
+                        <Anchor point="LEFT" relativeTo="$parent" relativePoint="LEFT">
+                            <Offset>
+                                <AbsDimension x="262" y="0"/>
+                            </Offset>
+                        </Anchor>
+                    </Anchors>
+                </FontString>
+                <FontString parentKey="bagsfree" inherits="GameFontNormalSmall" text="" justifyH="RIGHT" justifyV="MIDDLE">
+                    <Anchors>
+                        <Anchor point="RIGHT" relativeTo="$parent" relativePoint="LEFT">
+                            <Offset>
+                                <AbsDimension x="405" y="0"/>
+                            </Offset>
+                        </Anchor>
+                    </Anchors>
+                </FontString>
+                <FontString parentKey="bankusage" inherits="GameFontNormalSmall" text="" justifyH="LEFT" justifyV="MIDDLE">
+                    <Anchors>
+                        <Anchor point="LEFT" relativeTo="$parent" relativePoint="LEFT">
+                            <Offset>
+                                <AbsDimension x="417" y="0"/>
+                            </Offset>
+                        </Anchor>
+                    </Anchors>
+                </FontString>
+                <FontString parentKey="bankfree" inherits="GameFontNormalSmall" text="" justifyH="RIGHT" justifyV="MIDDLE">
+                    <Anchors>
+                        <Anchor point="RIGHT" relativeTo="$parent" relativePoint="LEFT">
+                            <Offset>
+                                <AbsDimension x="610" y="0"/>
+                            </Offset>
+                        </Anchor>
+                    </Anchors>
+                </FontString>
+            </Layer>
+        </Layers>
+
+        <ButtonText name="$parentName" nonspacewrap="true" parentKey="name">
+            <Size>
+                <AbsDimension x="0" y="10"/>
+            </Size>
+            <Anchors>
+                <Anchor point="LEFT" x="15" y="0"/>
+            </Anchors> 
+        </ButtonText>
+        
+        <NormalFont style="GameFontNormalLeft"/>
+        <HighlightFont style="GameFontHighlightLeft"/>
+        <DisabledFont style="GameFontHighlightLeft"/>
+    </Button> 
+    
+    <Button name="CleanUIDataStoreBagItemButtonTemplate" inherits="ItemButtonTemplate" frameStrata="HIGH" virtual="true" hidden="true"> 
+        <Size>
+            <AbsDimension x="36" y="36"/>
+        </Size> 
+        <Scripts>
+            <OnEnter>
+                CleanUIDataStoreEquipmentSlot_OnEnter(self);
+            </OnEnter>
+            <OnLeave>
+                CleanUIDataStore_HideTooltip(self);
+            </OnLeave>
+        </Scripts>
+    </Button> 
+      
+    <Button name="CleanUIDataStoreBagItemsTemplate" virtual="true">   
+        <Size>
+            <AbsDimension x="650" y="38"/>
+        </Size> 
+        
+        <Frames>  
+            <Button name="$parentItem1" inherits="CleanUIDataStoreBagItemButtonTemplate">
+                <Anchors>
+                    <Anchor point="LEFT" x="0" y="0"/>
+                </Anchors>
+            </Button>
+            <Button name="$parentItem2" inherits="CleanUIDataStoreBagItemButtonTemplate">
+                <Anchors>
+                    <Anchor point="LEFT" x="38" y="0"/>
+                </Anchors>
+            </Button>
+            <Button name="$parentItem3" inherits="CleanUIDataStoreBagItemButtonTemplate">
+                <Anchors>
+                    <Anchor point="LEFT" x="76" y="0"/>
+                </Anchors>
+            </Button>
+            <Button name="$parentItem4" inherits="CleanUIDataStoreBagItemButtonTemplate">
+                <Anchors>
+                    <Anchor point="LEFT" x="114" y="0"/>
+                </Anchors>
+            </Button>
+            <Button name="$parentItem5" inherits="CleanUIDataStoreBagItemButtonTemplate">
+                <Anchors>
+                    <Anchor point="LEFT" x="152" y="0"/>
+                </Anchors>
+            </Button>
+            <Button name="$parentItem6" inherits="CleanUIDataStoreBagItemButtonTemplate">
+                <Anchors>
+                    <Anchor point="LEFT" x="190" y="0"/>
+                </Anchors>
+            </Button>
+            <Button name="$parentItem7" inherits="CleanUIDataStoreBagItemButtonTemplate">
+                <Anchors>
+                    <Anchor point="LEFT" x="228" y="0"/>
+                </Anchors>
+            </Button>
+            <Button name="$parentItem8" inherits="CleanUIDataStoreBagItemButtonTemplate">
+                <Anchors>
+                    <Anchor point="LEFT" x="266" y="0"/>
+                </Anchors>
+            </Button>
+            <Button name="$parentItem9" inherits="CleanUIDataStoreBagItemButtonTemplate">
+                <Anchors>
+                    <Anchor point="LEFT" x="304" y="0"/>
+                </Anchors>
+            </Button>
+            <Button name="$parentItem10" inherits="CleanUIDataStoreBagItemButtonTemplate">
+                <Anchors>
+                    <Anchor point="LEFT" x="342" y="0"/>
+                </Anchors>
+            </Button>
+            <Button name="$parentItem11" inherits="CleanUIDataStoreBagItemButtonTemplate">
+                <Anchors>
+                    <Anchor point="LEFT" x="380" y="0"/>
+                </Anchors>
+            </Button>
+            <Button name="$parentItem12" inherits="CleanUIDataStoreBagItemButtonTemplate">
+                <Anchors>
+                    <Anchor point="LEFT" x="418" y="0"/>
+                </Anchors>
+            </Button>
+            <Button name="$parentItem13" inherits="CleanUIDataStoreBagItemButtonTemplate">
+                <Anchors>
+                    <Anchor point="LEFT" x="456" y="0"/>
+                </Anchors>
+            </Button>
+            <Button name="$parentItem14" inherits="CleanUIDataStoreBagItemButtonTemplate">
+                <Anchors>
+                    <Anchor point="LEFT" x="494" y="0"/>
+                </Anchors>
+            </Button>
+            <Button name="$parentItem15" inherits="CleanUIDataStoreBagItemButtonTemplate">
+                <Anchors>
+                    <Anchor point="LEFT" x="532" y="0"/>
+                </Anchors>
+            </Button>
+            <Button name="$parentItem16" inherits="CleanUIDataStoreBagItemButtonTemplate">
+                <Anchors>
+                    <Anchor point="LEFT" x="570" y="0"/>
+                </Anchors>
+            </Button>
+        </Frames>    
+
+        <ButtonText name="$parentName" nonspacewrap="true" parentKey="name">
+            <Size>
+                <AbsDimension x="150" y="10"/>
+            </Size>
+            <Anchors>
+                <Anchor point="LEFT" x="25" y="0"/>
+            </Anchors> 
+        </ButtonText>
+        
+        <NormalFont style="GameFontNormalLeft"/>
+        <HighlightFont style="GameFontHighlightLeft"/>
+        <DisabledFont style="GameFontHighlightLeft"/>
+    </Button> 
+
+    <Frame name="CleanUIDataStoreBagsFrame" parent="CleanUIDataStoreFrame" inherits="CleanUIDataStoreDataFrameTemplate">
+        <Frames>
+            <Frame name="$parentInfo" parentKey="info" hidden="true">
+                <Anchors>
+                    <Anchor point="TOPLEFT" x="15" y="-170"/>
+                    <Anchor point="BOTTOMRIGHT" x="-15" y="30"/>
+                </Anchors> 
+                <Layers>
+                </Layers>
+                <Frames> 
+		            <Frame name="$parentItemTypeDropDown" parentKey="typeDropDown" inherits="UIDropDownMenuTemplate">
+		                <Size>
+		                    <AbsDimension x="200" y="20"/>
+		                </Size>
+		                <Anchors>
+		                    <Anchor point="TOPLEFT" x="50" y="-10"/>
+		                </Anchors>
+		                <Layers>
+		                    <Layer level="ARTWORK">
+		                        <FontString parentKey="label" inherits="GameFontNormalLeft" nonspacewrap="true" maxLines="1" justifyH="LEFT" justifyV="TOP">
+		                            <Anchors>
+		                                <Anchor point="RIGHT" relativeTo="$parent" relativePoint="LEFT">
+		                                    <Offset>
+		                                        <AbsDimension x="0" y="3"/>
+		                                    </Offset>
+		                                </Anchor>
+		                            </Anchors>
+		                        </FontString>
+		                    </Layer>
+		                </Layers>
+		                <Scripts>
+		                    <OnLoad>
+		                        self.label:SetText(TYPE..":");    
+		                    </OnLoad>
+		                </Scripts>
+		            </Frame>
+		            
+		            <EditBox name="$parentFilterEditBox" inherits="SearchBoxTemplate" parentKey="searchBox" letters="40" historyLines="0" autoFocus="false">
+		                <Size x="100" y="20"/>
+		                <Anchors>
+		                    <Anchor point="TOPRIGHT" x="-10" y="-8"/>
+		                </Anchors>
+		                <Scripts>
+				            <OnTextChanged function="CleanUI_DataStoreUIBagSearch_OnTextChanged"/>
+				            <OnChar function="BagSearch_OnChar"/>
+				            <OnEnterPressed function="EditBox_ClearFocus"/>
+		                    <OnEscapePressed function="EditBox_ClearFocus"/>
+		                </Scripts>
+		                <FontString inherits="ChatFontNormal"/>
+		            </EditBox>
+		            
+                    <Frame parentKey="items" inherits="CleanUIDataStoreDataFrameTemplate">
+                        <Anchors>
+                            <Anchor point="TOPLEFT" x="-4" y="-27"/>
+                            <Anchor point="BOTTOMRIGHT" x="-7" y="0"/>
+                        </Anchors>
+        
+                        <Scripts>
+                            <OnLoad>
+                                self:Show();
+                                self.scrollFrame:SetPoint("BOTTOMRIGHT", 0, 0);
+                                CleanUI_DataStoreUI_InitScrollFrameWithTemplate(self, "CleanUIDataStoreBagItemsTemplate", CleanUI_DataStoreUIUpdateBagItemData);
+                            </OnLoad>
+                        </Scripts>
+                    </Frame>
+	            </Frames>
+            </Frame>  
+        </Frames>
+        <Scripts>
+            <OnLoad>
+                self.scrollFrame:SetPoint("BOTTOMRIGHT", -22, 300);                
+                CleanUI_DataStoreUI_InitScrollFrameWithTemplate(self, "CleanUIDataStoreBagsTemplate", CleanUI_DataStoreUIUpdateBagsData);
+            </OnLoad>
+        </Scripts>
+    </Frame>    
+
+</Ui>

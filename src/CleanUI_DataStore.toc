@@ -1,0 +1,38 @@
+## Interface: @@wow_version@@
+## Title: @@title@@
+## Author: @@author@@
+## Version: @@version@@
+## Notes: Collects some nice features
+## DefaultState: Enabled
+## LoadOnDemand: 0
+## OptionalDeps: Masque
+## SavedVariables: CleanUIDataStore
+## Dependencies: CleanUI
+
+libs\LibStub\LibStub.lua
+libs\CallbackHandler-1.0\CallbackHandler-1.0.lua
+libs\LibDataBroker-1.1\LibDataBroker-1.1.lua
+
+Localization.lua
+
+datastore\CleanUIDataStore.lua
+datastore\CleanUIDataStoreTooltips.lua
+
+datastore\CleanUI_DataStoreUI.lua
+datastore\CleanUI_DataStoreUICharacters.lua
+datastore\CleanUI_DataStoreUIMail.lua
+datastore\CleanUI_DataStoreUIEquipment.lua
+datastore\CleanUI_DataStoreUIBags.lua
+datastore\CleanUI_DataStoreUIGuildBank.lua
+datastore\CleanUI_DataStoreUISearch.lua
+
+datastore\CleanUI_DataStoreUI.xml
+datastore\CleanUI_DataStoreUICharacters.xml
+datastore\CleanUI_DataStoreUIMail.xml
+datastore\CleanUI_DataStoreUIEquipment.xml
+datastore\CleanUI_DataStoreUIBags.xml
+datastore\CleanUI_DataStoreUIGuildBank.xml
+datastore\CleanUI_DataStoreUISearch.xml
+
+
+CleanUI_DataStore.lua

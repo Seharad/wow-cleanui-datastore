@@ -1,0 +1,174 @@
+<Ui xmlns="http://www.blizzard.com/wow/ui/" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://www.blizzard.com/wow/ui/
+..\FrameXML\UI.xsd">
+
+    <Button name="CleanUIDataStoreSearchEntryTemplate" virtual="true">  
+        <Size>
+            <AbsDimension x="235" y="40"/>
+        </Size> 
+        <Scripts>
+            <OnLoad>
+                CleanUI_SetBackdrop(self); 
+                self:RegisterForClicks("AnyUp");
+            </OnLoad>
+            <OnEnter>
+                CleanUIDataStoreSearchItem_OnEnter(self);
+            </OnEnter>
+            <OnLeave>
+                CleanUIDataStoreSearchItem_OnLeave(self);
+            </OnLeave>
+        </Scripts>
+            
+        <NormalTexture urgency="5" file="Interface\Buttons\UI-MinusButton-UP">
+            <Size>
+                <AbsDimension x="16" y="16"/>
+            </Size>
+            <Anchors>
+                <Anchor point="LEFT">
+                    <Offset>
+                        <AbsDimension x="3" y="0"/>
+                    </Offset>
+                </Anchor>
+            </Anchors>
+        </NormalTexture>
+        <HighlightTexture name="$parentHighlight" file="Interface\Buttons\UI-PlusButton-Hilight" alphaMode="ADD">
+            <Size>
+                <AbsDimension x="16" y="16"/>
+            </Size>
+            <Anchors>
+                <Anchor point="LEFT">
+                    <Offset>
+                        <AbsDimension x="3" y="0"/>
+                    </Offset>
+                </Anchor>
+            </Anchors>
+        </HighlightTexture>
+        <ButtonText name="$parentNormalText" nonspacewrap="true" parentKey="name">
+            <Size>
+                <AbsDimension x="20" y="10"/>
+            </Size>
+            <Anchors>
+                <Anchor point="LEFT">
+                    <Offset>
+                        <AbsDimension x="45" y="0"/>
+                    </Offset>
+                </Anchor>
+                <Anchor point="RIGHT">
+                    <Offset>
+                        <AbsDimension x="-4" y="0"/>
+                    </Offset>
+                </Anchor>
+            </Anchors> 
+        </ButtonText>
+        <NormalFont style="GameFontNormalLeft"/>
+        <HighlightFont style="GameFontHighlightLeft"/>
+        <DisabledFont style="GameFontHighlightLeft"/>    
+                
+        <Frames>    
+		    <Button name="$parentItemButton" parentKey="itemButton" inherits="ItemButtonTemplate"> 
+		        <Size>
+		            <AbsDimension x="36" y="36"/>
+		        </Size>
+	            <Anchors>
+	                <Anchor point="LEFT">
+	                    <Offset>
+	                        <AbsDimension x="4" y="0"/>
+	                    </Offset>
+	                </Anchor>
+	            </Anchors> 
+		        <Scripts>
+		            <OnEnter>
+		                CleanUIDataStoreSearchItem_OnEnter(self);
+		            </OnEnter>
+		            <OnLeave>
+		                CleanUIDataStoreSearchItem_OnLeave(self);
+		            </OnLeave>
+		        </Scripts>
+		    </Button> 
+        </Frames>
+    </Button>
+
+    <Frame name="CleanUIDataStoreSearchFrameTemplate" virtual="true" toplevel="true" frameStrata="LOW" hidden="true">
+        <Frames>
+            <Button name="$parentCloseButton" inherits="UIPanelCloseButton">
+                <Anchors>
+                    <Anchor point="TOPRIGHT" relativePoint="TOPRIGHT">
+                        <Offset x="4" y="5"/>
+                    </Anchor>
+                </Anchors>
+                <Scripts>
+                    <OnClick function="CleanUI_DataStore_ToggleSearch" />
+                </Scripts>
+            </Button>   
+                     
+            <ScrollFrame name="$parentScrollFrame" parentKey="scrollFrame" inherits="HybridScrollFrameTemplate">
+                <Size>
+                    <AbsDimension x="100" y="100"/>
+                </Size>
+                <Anchors>
+                    <Anchor point="TOPLEFT">
+                        <Offset>
+                            <AbsDimension x="5" y="-25"/>
+                        </Offset>
+                    </Anchor>
+                    <Anchor point="BOTTOMRIGHT">
+                        <Offset>
+                            <AbsDimension x="-25" y="30"/>
+                        </Offset>
+                    </Anchor>
+                </Anchors>
+                <Frames>
+                    <Slider name="$parentScrollBar" inherits="HybridScrollBarTemplate" parentKey="scrollBar">
+                        <Anchors>
+                            <Anchor point="TOPLEFT" relativePoint="TOPRIGHT">
+                                <Offset x="0" y="-13"/>
+                            </Anchor>
+                            <Anchor point="BOTTOMLEFT" relativePoint="BOTTOMRIGHT">
+                                <Offset x="0" y="14"/>
+                            </Anchor>
+                        </Anchors>
+                        <Scripts>
+                            <OnLoad>
+                                local name = self:GetName();
+                                _G[name.."BG"]:Hide();
+                                _G[name.."Top"]:Hide();
+                                _G[name.."Bottom"]:Hide();
+                                _G[name.."Middle"]:Hide();
+                                self.doNotHide = true;
+                            </OnLoad>
+                        </Scripts>
+                    </Slider>
+                    <Frame name="$parentEntryHighlightFrame" parentKey="highlightFrame" hidden="true" frameStrata="HIGH">
+                        <Anchors>
+                            <Anchor point="TOPLEFT"/>
+                            <Anchor point="BOTTOMRIGHT"/>
+                        </Anchors>
+                        <Layers>
+                            <Layer level="ARTWORK">
+                                <Texture name="$parentHighlight" file="Interface\QuestFrame\UI-QuestLogTitleHighlight" alphaMode="ADD"/>
+                            </Layer>
+                        </Layers>
+                        <Scripts>
+                            <OnLoad>
+                                self:SetParent(nil);
+                            </OnLoad>
+                        </Scripts>
+                    </Frame>
+                </Frames>
+                <Scripts>
+                    <OnMouseWheel>
+                        local scrollBar = self.scrollBar;
+                        if ( scrollBar:IsShown() ) then
+                    		if (IsMacClient()) then
+                            	scrollBar:SetValue(scrollBar:GetValue() - (delta * 40));
+                    		else
+                            	scrollBar:SetValue(scrollBar:GetValue() + (delta * 40));
+                    		end
+                        end
+                    </OnMouseWheel>
+                </Scripts>
+            </ScrollFrame> 
+        </Frames>
+    </Frame>
+
+
+</Ui>

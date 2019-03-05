@@ -1,0 +1,323 @@
+<Ui xmlns="http://www.blizzard.com/wow/ui/" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://www.blizzard.com/wow/ui/
+..\FrameXML\UI.xsd">
+    
+    <Button name="CleanUIDataStoreMailItemSlotButtonTemplate" inherits="ItemButtonTemplate" virtual="true" hidden="true">
+        <Scripts>
+            <OnEnter>
+                CleanUIDataStoreMailItem_OnEnter(self);
+            </OnEnter>
+            <OnLeave>
+                CleanUIDataStore_HideTooltip(self);
+            </OnLeave>
+        </Scripts>
+    </Button> 
+      
+    <Button name="CleanUIDataStoreMailTemplate" virtual="true">   
+        <Size>
+            <AbsDimension x="650" y="22"/>
+        </Size> 
+        <Scripts>
+            <OnEnter>
+                CleanUIDataStoreMail_OnEnter(self);
+            </OnEnter>
+            <OnLeave>
+                CleanUIDataStore_HideTooltip(self);
+            </OnLeave>
+            <OnClick>
+                CleanUIDataStoreMail_OnClick(self, button, down);
+            </OnClick>
+        </Scripts>
+        
+        <Frames>  
+        </Frames>  
+            
+        <Layers>
+            <Layer level="ARTWORK">
+                <FontString parentKey="total" inherits="GameFontNormalSmall" text="0" justifyH="RIGHT" justifyV="MIDDLE">
+                    <Anchors>
+                        <Anchor point="RIGHT" relativeTo="$parent" relativePoint="LEFT">
+                            <Offset>
+                                <AbsDimension x="265" y="0"/>
+                            </Offset>
+                        </Anchor>
+                    </Anchors>
+                </FontString>
+                <FontString parentKey="items" inherits="GameFontNormalSmall" text="0" justifyH="RIGHT" justifyV="MIDDLE">
+                    <Anchors>
+                        <Anchor point="RIGHT" relativeTo="$parent" relativePoint="LEFT">
+                            <Offset>
+                                <AbsDimension x="350" y="0"/>
+                            </Offset>
+                        </Anchor>
+                    </Anchors>
+                </FontString>
+            </Layer>
+        </Layers>
+
+        <ButtonText name="$parentName" nonspacewrap="true" parentKey="name">
+            <Size>
+                <AbsDimension x="0" y="10"/>
+            </Size>
+            <Anchors>
+                <Anchor point="LEFT" x="15" y="0"/>
+            </Anchors> 
+        </ButtonText>
+        
+        <NormalFont style="GameFontNormalLeft"/>
+        <HighlightFont style="GameFontHighlightLeft"/>
+        <DisabledFont style="GameFontHighlightLeft"/>
+    </Button>
+      
+    <Button name="CleanUIDataStoreMailSubjectTemplate" virtual="true">   
+        <Size>
+            <AbsDimension x="175" y="22"/>
+        </Size> 
+        <Scripts>
+            <OnEnter>
+                CleanUIDataStoreMailSubject_OnEnter(self);
+            </OnEnter>
+            <OnLeave>
+                CleanUIDataStore_HideTooltip(self);
+            </OnLeave>
+            <OnClick>
+                CleanUIDataStoreMailSubject_OnClick(self, button, down);
+            </OnClick>
+        </Scripts>
+        
+        <Frames>  
+        </Frames>
+            
+        <Layers>
+            <Layer level="ARTWORK">
+        
+                <Texture parentKey="icon" file="Interface\Common\WhiteIconFrame">
+                    <Size x="20" y="20"/>
+                    <Anchors>
+                        <Anchor point="LEFT" relativeTo="$parent" relativePoint="LEFT">
+                            <Offset>
+                                <AbsDimension x="0" y="0"/>
+                            </Offset>
+                        </Anchor>
+                    </Anchors>
+                </Texture>
+                
+            </Layer>
+        </Layers>        
+
+        <ButtonText name="$parentName" nonspacewrap="true" parentKey="name">
+            <Size>
+                <AbsDimension x="150" y="10"/>
+            </Size>
+            <Anchors>
+                <Anchor point="LEFT" x="25" y="0"/>
+            </Anchors> 
+        </ButtonText>
+        
+        <NormalFont style="GameFontNormalLeft"/>
+        <HighlightFont style="GameFontHighlightLeft"/>
+        <DisabledFont style="GameFontHighlightLeft"/>
+    </Button>
+      
+    <Frame name="CleanUIDataStoreMailFrame" parent="CleanUIDataStoreFrame" inherits="CleanUIDataStoreDataFrameTemplate">
+        <Frames>
+            <Frame name="$parentInfo" parentKey="info" hidden="true">
+                <Anchors>
+                    <Anchor point="TOPLEFT" x="15" y="-220"/>
+                    <Anchor point="BOTTOMRIGHT" x="-15" y="0"/>
+                </Anchors> 
+                <Layers>
+                    <Layer level="ARTWORK"> 
+                        
+                        <FontString parentKey="subjects_label" inherits="GameFontNormal" text="MAIL_SUBJECT_LABEL" justifyH="LEFT" justifyV="TOP">
+                            <Anchors>
+                                <Anchor point="TOPLEFT" x="0" y="-15"/>
+                            </Anchors>
+                        </FontString>    
+                        
+                    </Layer>
+                </Layers>
+                
+                <Frames>
+                    <Frame parentKey="subject" inherits="CleanUIDataStoreDataFrameTemplate">
+                        <Anchors>
+                            <Anchor point="TOPLEFT" x="0" y="-10"/>
+                            <Anchor point="BOTTOMRIGHT" x="-435" y="0"/>
+                        </Anchors>
+        
+                        <Scripts>
+                            <OnLoad>
+                                self:Show();
+                                self.scrollFrame:SetPoint("BOTTOMRIGHT", 0, 0);
+                                CleanUI_DataStoreUI_InitScrollFrameWithTemplate(self, "CleanUIDataStoreMailSubjectTemplate", CleanUI_DataStoreUIUpdateMailSubjectData);
+                            </OnLoad>
+                        </Scripts>
+                    </Frame>
+                    
+                    <Frame parentKey="content" hidden="true">
+                        <Anchors>
+                            <Anchor point="TOPLEFT" x="200" y="-15"/>
+                            <Anchor point="BOTTOMRIGHT" x="0" y="0"/>
+                        </Anchors> 
+                        
+                        <Layers>                            
+                            <Layer level="ARTWORK"> 
+                                
+                                <FontString parentKey="subject" inherits="GameFontNormal" text="xxx" justifyH="LEFT" justifyV="TOP">
+                                    <Anchors>
+                                        <Anchor point="TOPLEFT" x="10" y="0"/>
+                                    </Anchors>
+                                </FontString>     
+                         
+                                <!-- from -->        
+                                
+                                <FontString parentKey="from_label" inherits="GameFontNormal" text="FROM" justifyH="LEFT" justifyV="TOP">
+                                    <Anchors>
+                                        <Anchor point="TOPLEFT">
+                                            <Offset>
+                                                <AbsDimension x="10" y="-30"/>
+                                            </Offset>
+                                        </Anchor>
+                                    </Anchors>
+                                </FontString>                        
+                                <FontString parentKey="from" inherits="GameFontNormal" text="xxx" justifyH="LEFT" justifyV="TOP">
+                                    <Anchors>
+                                        <Anchor point="TOPLEFT">
+                                            <Offset>
+                                                <AbsDimension x="50" y="-30"/>
+                                            </Offset>
+                                        </Anchor>
+                                    </Anchors>
+                                </FontString>    
+                         
+                                <!-- expires -->   
+                                                       
+                                <FontString parentKey="expires" inherits="GameFontNormalSmall" text="xxx" justifyH="LEFT" justifyV="TOP">
+                                    <Anchors>
+                                        <Anchor point="TOPLEFT">
+                                            <Offset>
+                                                <AbsDimension x="10" y="-45"/>
+                                            </Offset>
+                                        </Anchor>
+                                    </Anchors>
+                                </FontString>  
+                         
+                                <!-- message text -->   
+                                                      
+                                <FontString parentKey="messageText" inherits="GameFontNormalSmall" text="xxx" nonspacewrap="true" maxLines="18" justifyH="LEFT" justifyV="TOP">
+                                    <Size x="250" y="150"/>
+                                    <Anchors>
+                                        <Anchor point="TOPLEFT">
+                                            <Offset>
+                                                <AbsDimension x="10" y="-65"/>
+                                            </Offset>
+                                        </Anchor>
+                                    </Anchors>
+                                </FontString>
+                         
+                                <!-- money -->  
+                                                       
+                                <FontString parentKey="amountType" inherits="GameFontNormal" text="xxx" justifyH="LEFT" justifyV="TOP">
+                                    <Anchors>
+                                        <Anchor point="TOPLEFT">
+                                            <Offset>
+                                                <AbsDimension x="255" y="-180"/>
+                                            </Offset>
+                                        </Anchor>
+                                    </Anchors>
+                                </FontString>  
+                                
+                            </Layer>
+                        </Layers>
+                        
+                        <Frames>
+    
+                            <Button name="CleanUIDataStoreMailFrameItem1" inherits="CleanUIDataStoreMailItemSlotButtonTemplate">
+                                <Anchors>
+                                    <Anchor point="TOPLEFT" x="255" y="-30"/>
+                                </Anchors>
+                            </Button>
+                            <Button name="CleanUIDataStoreMailFrameItem2" inherits="CleanUIDataStoreMailItemSlotButtonTemplate">
+                                <Anchors>
+                                    <Anchor point="TOPLEFT" x="295" y="-30"/>
+                                </Anchors>
+                            </Button>
+                            <Button name="CleanUIDataStoreMailFrameItem3" inherits="CleanUIDataStoreMailItemSlotButtonTemplate">
+                                <Anchors>
+                                    <Anchor point="TOPLEFT" x="335" y="-30"/>
+                                </Anchors>
+                            </Button>    
+                            <Button name="CleanUIDataStoreMailFrameItem4" inherits="CleanUIDataStoreMailItemSlotButtonTemplate">
+                                <Anchors>
+                                    <Anchor point="TOPLEFT" x="375" y="-30"/>
+                                </Anchors>
+                            </Button>
+                            
+                            <Button name="CleanUIDataStoreMailFrameItem5" inherits="CleanUIDataStoreMailItemSlotButtonTemplate">
+                                <Anchors>
+                                    <Anchor point="TOPLEFT" x="255" y="-70"/>
+                                </Anchors>
+                            </Button>
+                            <Button name="CleanUIDataStoreMailFrameItem6" inherits="CleanUIDataStoreMailItemSlotButtonTemplate">
+                                <Anchors>
+                                    <Anchor point="TOPLEFT" x="295" y="-70"/>
+                                </Anchors>
+                            </Button>    
+                            <Button name="CleanUIDataStoreMailFrameItem7" inherits="CleanUIDataStoreMailItemSlotButtonTemplate">
+                                <Anchors>
+                                    <Anchor point="TOPLEFT" x="335" y="-70"/>
+                                </Anchors>
+                            </Button>
+                            <Button name="CleanUIDataStoreMailFrameItem8" inherits="CleanUIDataStoreMailItemSlotButtonTemplate">
+                                <Anchors>
+                                    <Anchor point="TOPLEFT" x="375" y="-70"/>
+                                </Anchors>
+                            </Button>
+                            
+                            <Button name="CleanUIDataStoreMailFrameItem9" inherits="CleanUIDataStoreMailItemSlotButtonTemplate">
+                                <Anchors>
+                                    <Anchor point="TOPLEFT" x="255" y="-110"/>
+                                </Anchors>
+                            </Button>    
+                            <Button name="CleanUIDataStoreMailFrameItem10" inherits="CleanUIDataStoreMailItemSlotButtonTemplate">
+                                <Anchors>
+                                    <Anchor point="TOPLEFT" x="295" y="-110"/>
+                                </Anchors>
+                            </Button>
+                            <Button name="CleanUIDataStoreMailFrameItem11" inherits="CleanUIDataStoreMailItemSlotButtonTemplate">
+                                <Anchors>
+                                    <Anchor point="TOPLEFT" x="335" y="-110"/>
+                                </Anchors>
+                            </Button>
+                            <Button name="CleanUIDataStoreMailFrameItem12" inherits="CleanUIDataStoreMailItemSlotButtonTemplate">
+                                <Anchors>
+                                    <Anchor point="TOPLEFT" x="375" y="-110"/>
+                                </Anchors>
+                            </Button>
+                            
+				            <Frame name="CleanUIDataStoreMailFrameMoneyFrame" inherits="SmallMoneyFrameTemplate">
+				                <Anchors>
+				                    <Anchor point="TOPLEFT" x="255" y="-200"/>
+				                </Anchors>
+				                <Scripts>
+				                    <OnLoad>
+				                        SmallMoneyFrame_OnLoad(self);
+				                        MoneyFrame_SetType(self, "STATIC");
+				                    </OnLoad>
+				                </Scripts>
+				            </Frame>
+                            
+                        </Frames>
+                    </Frame>
+                </Frames>
+            </Frame>
+        </Frames>
+        
+        <Scripts>
+            <OnLoad>
+                self.scrollFrame:SetPoint("BOTTOMRIGHT", -22, 250);
+                CleanUI_DataStoreUI_InitScrollFrameWithTemplate(self, "CleanUIDataStoreMailTemplate", CleanUI_DataStoreUIUpdateMailData);
+            </OnLoad>
+        </Scripts>
+    </Frame>   
+
+</Ui>

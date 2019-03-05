@@ -1,0 +1,324 @@
+<Ui xmlns="http://www.blizzard.com/wow/ui/" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://www.blizzard.com/wow/ui/
+..\FrameXML\UI.xsd">
+      
+    <Button name="CleanUIDataStoreCharacterTemplate" virtual="true">   
+        <Size>
+            <AbsDimension x="650" y="22"/>
+        </Size> 
+        <Scripts>
+            <OnEnter>
+                CleanUIDataStoreCharacter_OnEnter(self);
+            </OnEnter>
+            <OnLeave>
+                CleanUIDataStore_HideTooltip(self);
+            </OnLeave>
+            <OnClick>
+                CleanUIDataStoreCharacter_OnClick(self, button, down);
+            </OnClick>
+        </Scripts>
+        
+        <Frames>  
+		    <Button parentKey="deleteButton" hidden="true">   
+		        <Size>
+		            <AbsDimension x="22" y="22"/>
+		        </Size> 
+                <Anchors>
+                    <Anchor point="CENTER">
+                        <Offset>
+                            <AbsDimension x="275" y="0"/>
+                        </Offset>
+                    </Anchor>
+                </Anchors>
+		        <Scripts>
+		            <OnClick>
+		                CleanUI_DataStoreUIDeleteDataYesNo();
+		            </OnClick>
+		        </Scripts>
+            
+		        <NormalTexture urgency="5" file="Interface\RAIDFRAME\ReadyCheck-NotReady">
+		            <Size>
+		                <AbsDimension x="20" y="20"/>
+		            </Size>
+		            <Anchors>
+		                <Anchor point="CENTER">
+		                    <Offset>
+		                        <AbsDimension x="0" y="0"/>
+		                    </Offset>
+		                </Anchor>
+		            </Anchors>
+		        </NormalTexture>
+		    </Button>
+        </Frames>  
+            
+        <Layers>
+            <Layer level="ARTWORK">
+                <FontString parentKey="level" inherits="GameFontNormalSmall" text="" justifyH="RIGHT" justifyV="MIDDLE">
+                    <Anchors>
+                        <Anchor point="RIGHT" relativeTo="$parent" relativePoint="LEFT">
+                            <Offset>
+                                <AbsDimension x="250" y="0"/>
+                            </Offset>
+                        </Anchor>
+                    </Anchors>
+                </FontString>
+                            
+                <Texture parentKey="faction" file="Interface\BattlefieldFrame\Battleground-Alliance">
+                    <Size x="24" y="24"/>
+                    <Anchors>
+                        <Anchor point="CENTER" relativeTo="$parent" relativePoint="LEFT">
+                            <Offset>
+                                <AbsDimension x="275" y="0"/>
+                            </Offset>
+                        </Anchor>
+                    </Anchors>
+                </Texture>
+                
+                <FontString parentKey="money" inherits="GameFontNormalSmall" text="" justifyH="RIGHT" justifyV="MIDDLE">
+                    <Anchors>
+                        <Anchor point="RIGHT" relativeTo="$parent" relativePoint="LEFT">
+                            <Offset>
+                                <AbsDimension x="410" y="0"/>
+                            </Offset>
+                        </Anchor>
+                    </Anchors>
+                </FontString>  
+                
+                <FontString parentKey="ail" inherits="GameFontNormalSmall" text="" justifyH="RIGHT" justifyV="MIDDLE">
+                    <Anchors>
+                        <Anchor point="RIGHT" relativeTo="$parent" relativePoint="LEFT">
+                            <Offset>
+                                <AbsDimension x="465" y="0"/>
+                            </Offset>
+                        </Anchor>
+                    </Anchors>
+                </FontString>
+                
+                <FontString parentKey="lastOnline" inherits="GameFontNormalSmall" text="xxx" justifyH="RIGHT" justifyV="MIDDLE">
+                    <Anchors>
+                        <Anchor point="LEFT" relativeTo="$parent" relativePoint="LEFT">
+                            <Offset>
+                                <AbsDimension x="475" y="0"/>
+                            </Offset>
+                        </Anchor>
+                    </Anchors>
+                </FontString>
+            </Layer>
+        </Layers>
+
+        <ButtonText name="$parentName" nonspacewrap="true" parentKey="name">
+            <Size>
+                <AbsDimension x="0" y="10"/>
+            </Size>
+            <Anchors>
+                <Anchor point="LEFT" x="15" y="0"/>
+            </Anchors> 
+        </ButtonText>
+        
+        <NormalFont style="GameFontNormalLeft"/>
+        <HighlightFont style="GameFontHighlightLeft"/>
+        <DisabledFont style="GameFontHighlightLeft"/>
+    </Button>  
+
+    <Frame name="CleanUIDataStoreCharacterFrame" parent="CleanUIDataStoreFrame" inherits="CleanUIDataStoreDataFrameTemplate">
+        <Frames>
+            <Frame name="$parentInfo" parentKey="info" hidden="true">
+                <Anchors>
+                    <Anchor point="TOPLEFT" x="15" y="-235"/>
+                    <Anchor point="BOTTOMRIGHT" x="-15" y="30"/>
+                </Anchors> 
+                <Layers>
+                    <Layer level="ARTWORK"> 
+                           
+                        <!-- basics -->    
+                            
+                        <Texture parentKey="raceicon" file="Interface\Common\WhiteIconFrame">
+                            <Size x="200" y="200"/>
+                            <Anchors>
+                                <Anchor point="TOPLEFT" relativeTo="$parent" relativePoint="TOPLEFT">
+                                    <Offset>
+                                        <AbsDimension x="0" y="0"/>
+                                    </Offset>
+                                </Anchor>
+                            </Anchors>
+                        </Texture>
+                        <FontString parentKey="name" inherits="GameFontNormalHuge" text="name" justifyH="LEFT" justifyV="TOP">
+                            <Anchors>
+                                <Anchor point="TOPLEFT" relativeTo="$parent" relativePoint="TOPLEFT">
+                                    <Offset>
+                                        <AbsDimension x="200" y="-10"/>
+                                    </Offset>
+                                </Anchor>
+                            </Anchors>
+                        </FontString>
+                        <FontString parentKey="level" inherits="SystemFont_OutlineThick_WTF" text="name" justifyH="LEFT" justifyV="TOP">
+                            <Anchors>
+                                <Anchor point="TOPLEFT" relativeTo="$parent" relativePoint="TOPLEFT">
+                                    <Offset>
+                                        <AbsDimension x="200" y="-35"/>
+                                    </Offset>
+                                </Anchor>
+                            </Anchors>
+                        </FontString>
+                        
+                        <FontString parentKey="race" inherits="GameFontNormal" text="race" justifyH="LEFT" justifyV="TOP">
+                            <Anchors>
+                                <Anchor point="TOPLEFT" relativeTo="$parent" relativePoint="TOPLEFT">
+                                    <Offset>
+                                        <AbsDimension x="300" y="-35"/>
+                                    </Offset>
+                                </Anchor>
+                            </Anchors>
+                        </FontString>
+                        
+                        <FontString parentKey="bindLocation" inherits="GameFontNormalSmall" text="race" justifyH="LEFT" justifyV="TOP">
+                            <Anchors>
+                                <Anchor point="TOPLEFT" relativeTo="$parent" relativePoint="TOPLEFT">
+                                    <Offset>
+                                        <AbsDimension x="300" y="-50"/>
+                                    </Offset>
+                                </Anchor>
+                            </Anchors>
+                        </FontString>
+                        
+                        <FontString parentKey="guild" inherits="GameFontNormal" text="HEALTH" justifyH="LEFT" justifyV="TOP">
+                            <Anchors>
+                                <Anchor point="TOPLEFT" relativeTo="$parent" relativePoint="TOPLEFT">
+                                    <Offset>
+                                        <AbsDimension x="200" y="-70"/>
+                                    </Offset>
+                                </Anchor>
+                            </Anchors>
+                        </FontString>    
+                         
+                        <!-- health / mana -->        
+                        
+                        <FontString parentKey="health_label" inherits="GameFontNormalSmall" text="HEALTH" justifyH="LEFT" justifyV="TOP">
+                            <Anchors>
+                                <Anchor point="TOPLEFT" relativeTo="$parent" relativePoint="TOPLEFT">
+                                    <Offset>
+                                        <AbsDimension x="200" y="-100"/>
+                                    </Offset>
+                                </Anchor>
+                            </Anchors>
+                        </FontString>                        
+                        <FontString parentKey="health" inherits="GameFontNormalSmall" text="health" justifyH="RIGHT" justifyV="TOP">
+                            <Anchors>
+                                <Anchor point="TOPRIGHT" relativeTo="$parent" relativePoint="TOPLEFT">
+                                    <Offset>
+                                        <AbsDimension x="325" y="-100"/>
+                                    </Offset>
+                                </Anchor>
+                            </Anchors>
+                        </FontString>
+                        
+                        <FontString parentKey="power_label" inherits="GameFontNormalSmall" text="power" justifyH="LEFT" justifyV="TOP">
+                            <Anchors>
+                                <Anchor point="TOPLEFT" relativeTo="$parent" relativePoint="TOPLEFT">
+                                    <Offset>
+                                        <AbsDimension x="200" y="-115"/>
+                                    </Offset>
+                                </Anchor>
+                            </Anchors>
+                        </FontString>                        
+                        <FontString parentKey="power" inherits="GameFontNormalSmall" text="power" justifyH="RIGHT" justifyV="TOP">
+                            <Anchors>
+                                <Anchor point="TOPRIGHT" relativeTo="$parent" relativePoint="TOPLEFT">
+                                    <Offset>
+                                        <AbsDimension x="325" y="-115"/>
+                                    </Offset>
+                                </Anchor>
+                            </Anchors>
+                        </FontString>   
+                        
+                        <!-- stats -->
+                        
+                        <FontString parentKey="intellect_label" inherits="GameFontNormalSmall" text="INTELLECT_COLON" justifyH="LEFT" justifyV="TOP">
+                            <Anchors>
+                                <Anchor point="TOPLEFT" relativeTo="$parent" relativePoint="TOPLEFT">
+                                    <Offset>
+                                        <AbsDimension x="400" y="-100"/>
+                                    </Offset>
+                                </Anchor>
+                            </Anchors>
+                        </FontString>                        
+                        <FontString parentKey="intellect" inherits="GameFontNormalSmall" text="intellect" justifyH="RIGHT" justifyV="TOP">
+                            <Anchors>
+                                <Anchor point="TOPRIGHT" relativeTo="$parent" relativePoint="TOPLEFT">
+                                    <Offset>
+                                        <AbsDimension x="525" y="-100"/>
+                                    </Offset>
+                                </Anchor>
+                            </Anchors>
+                        </FontString>
+                        
+                        <FontString parentKey="agility_label" inherits="GameFontNormalSmall" text="AGILITY_COLON" justifyH="LEFT" justifyV="TOP">
+                            <Anchors>
+                                <Anchor point="TOPLEFT" relativeTo="$parent" relativePoint="TOPLEFT">
+                                    <Offset>
+                                        <AbsDimension x="400" y="-115"/>
+                                    </Offset>
+                                </Anchor>
+                            </Anchors>
+                        </FontString>                        
+                        <FontString parentKey="agility" inherits="GameFontNormalSmall" text="agility" justifyH="RIGHT" justifyV="TOP">
+                            <Anchors>
+                                <Anchor point="TOPRIGHT" relativeTo="$parent" relativePoint="TOPLEFT">
+                                    <Offset>
+                                        <AbsDimension x="525" y="-115"/>
+                                    </Offset>
+                                </Anchor>
+                            </Anchors>
+                        </FontString>
+                        
+                        <FontString parentKey="stamina_label" inherits="GameFontNormalSmall" text="STAMINA_COLON" justifyH="LEFT" justifyV="TOP">
+                            <Anchors>
+                                <Anchor point="TOPLEFT" relativeTo="$parent" relativePoint="TOPLEFT">
+                                    <Offset>
+                                        <AbsDimension x="400" y="-130"/>
+                                    </Offset>
+                                </Anchor>
+                            </Anchors>
+                        </FontString>                        
+                        <FontString parentKey="stamina" inherits="GameFontNormalSmall" text="stamina" justifyH="RIGHT" justifyV="TOP">
+                            <Anchors>
+                                <Anchor point="TOPRIGHT" relativeTo="$parent" relativePoint="TOPLEFT">
+                                    <Offset>
+                                        <AbsDimension x="525" y="-130"/>
+                                    </Offset>
+                                </Anchor>
+                            </Anchors>
+                        </FontString>
+                        
+                        <FontString parentKey="strength_label" inherits="GameFontNormalSmall" text="STRENGTH_COLON" justifyH="LEFT" justifyV="TOP">
+                            <Anchors>
+                                <Anchor point="TOPLEFT" relativeTo="$parent" relativePoint="TOPLEFT">
+                                    <Offset>
+                                        <AbsDimension x="400" y="-145"/>
+                                    </Offset>
+                                </Anchor>
+                            </Anchors>
+                        </FontString>                        
+                        <FontString parentKey="strength" inherits="GameFontNormalSmall" text="strength" justifyH="RIGHT" justifyV="TOP">
+                            <Anchors>
+                                <Anchor point="TOPRIGHT" relativeTo="$parent" relativePoint="TOPLEFT">
+                                    <Offset>
+                                        <AbsDimension x="525" y="-145"/>
+                                    </Offset>
+                                </Anchor>
+                            </Anchors>
+                        </FontString>
+                        
+                    </Layer>
+                </Layers>
+            </Frame>
+        </Frames>
+        
+        <Scripts>
+            <OnLoad>
+                self.scrollFrame:SetPoint("BOTTOMRIGHT", -22, 250);                
+                CleanUI_DataStoreUI_InitScrollFrameWithTemplate(self, "CleanUIDataStoreCharacterTemplate", CleanUI_DataStoreUIUpdateCharacterData);
+            </OnLoad>
+        </Scripts>
+    </Frame>    
+
+</Ui>

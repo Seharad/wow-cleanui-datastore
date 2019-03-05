@@ -1,0 +1,353 @@
+<Ui xmlns="http://www.blizzard.com/wow/ui/" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://www.blizzard.com/wow/ui/
+..\FrameXML\UI.xsd">
+
+    <Frame name="CUIDataStoreTabTemplate" enableMouse="true" virtual="true">
+        <Size x="42" y="50"/>
+        <Anchors>
+            <Anchor point="TOPLEFT" x="0" y="0"/>
+        </Anchors>
+        <Layers>
+            <Layer level="BACKGROUND">
+                <Texture file="Interface\GuildBankFrame\UI-GuildBankFrame-Tab">
+                    <Size x="64" y="64"/>
+                    <Anchors>
+                        <Anchor point="TOPLEFT"/>
+                    </Anchors>
+                </Texture>
+            </Layer>
+        </Layers>
+        <Frames>
+            <CheckButton name="$parentButton">
+                <Size x="36" y="34"/>
+                <Anchors>
+                    <Anchor point="TOPLEFT" x="2" y="-8"/>
+                </Anchors>
+                <Layers>
+                    <Layer level="BORDER">
+                        <Texture name="$parentIconTexture" parentKey="Icon"/>
+                        <FontString name="$parentCount" inherits="NumberFontNormal" justifyH="RIGHT" hidden="true">
+                            <Anchors>
+                                <Anchor point="BOTTOMRIGHT" x="-5" y="2"/>
+                            </Anchors>
+                        </FontString>
+                    </Layer>
+                    <Layer level="ARTWORK">
+                        <Texture name="$parentSearchOverlay" parentKey="searchOverlay" setAllPoints="true" hidden="true" textureSubLevel="4">
+                            <Color r="0" g="0" b="0" a="0.8"/>
+                        </Texture>
+                    </Layer>
+                </Layers>
+                <Scripts>
+                    <OnLoad>
+                        self:RegisterForClicks("LeftButtonUp", "RightButtonUp");
+                        self:RegisterEvent("INVENTORY_SEARCH_UPDATE");
+                    </OnLoad>
+                    <OnClick>
+                        CleanUIDataStore_ToggleCategory(self:GetParent():GetID());
+                    </OnClick>
+                    <OnEnter>
+                        GameTooltip:SetOwner(self, "ANCHOR_RIGHT");
+                        GameTooltip:SetText(DS_CATEGORY[self:GetParent():GetID()]);
+                    </OnEnter>
+                    <OnLeave>
+                        GameTooltip:FadeOut();
+                    </OnLeave>
+                </Scripts>
+                <NormalTexture name="$parentNormalTexture" file="Interface\Buttons\UI-Quickslot2">
+                    <Size x="60" y="60"/>
+                    <Anchors>
+                        <Anchor point="CENTER" x="0" y="-1"/>
+                    </Anchors>
+                </NormalTexture>
+                <PushedTexture file="Interface\Buttons\UI-Quickslot-Depress"/>
+                <HighlightTexture file="Interface\Buttons\ButtonHilight-Square" alphaMode="ADD"/>
+                <CheckedTexture alphaMode="ADD" file="Interface\Buttons\CheckButtonHilight"/>
+            </CheckButton>
+        </Frames>
+    </Frame>
+
+    
+
+    <Button name="CleanUIDataStore_MinimapButton" parent="Minimap" enableMouse="true" movable="true" hidden="false">
+        <Size>
+            <AbsDimension x="33" y="33"/>
+        </Size>
+        <Anchors>
+            <Anchor point="TOPLEFT"/>
+        </Anchors>
+        <Layers>
+            <Layer level="BACKGROUND">
+                <Texture file="Interface\MailFrame\Mail-Icon">
+                    <Size>
+                        <AbsDimension x="21" y="21"/>
+                    </Size>
+                    <Anchors>
+                        <Anchor point="TOPLEFT">
+                            <Offset>
+                                <AbsDimension x="6" y="-5"/>
+                            </Offset>
+                        </Anchor>
+                    </Anchors>
+                </Texture>
+            </Layer>
+            <Layer level="OVERLAY">
+                <Texture file="Interface\Minimap\MiniMap-TrackingBorder">
+                    <Size>
+                        <AbsDimension x="56" y="56"/>
+                    </Size>
+                    <Anchors>
+                        <Anchor point="TOPLEFT"/>
+                    </Anchors>
+                </Texture>
+            </Layer>
+        </Layers>
+        <Frames>
+            <Frame name="CleanUIDataStore_MinimapButton_DraggingFrame" hidden="true">
+                <Scripts>
+                    <OnUpdate>
+                        CleanUIDataStore_MinimapButton_DraggingFrame_OnUpdate();
+                    </OnUpdate>
+                </Scripts>
+            </Frame>
+        </Frames>
+        <HighlightTexture alphaMode="ADD" file="Interface\Minimap\UI-Minimap-ZoomButton-Highlight"/>
+        <Scripts>
+            <OnLoad>
+                self:RegisterForClicks("LeftButtonUp","RightButtonUp");
+                self:RegisterForDrag("LeftButton","RightButton");       
+            </OnLoad>
+            <OnDragStart>
+                self:LockHighlight();
+                CleanUIDataStore_MinimapButton_DraggingFrame:Show();
+            </OnDragStart>
+            <OnDragStop>
+                self:UnlockHighlight();
+                CleanUIDataStore_MinimapButton_DraggingFrame:Hide();
+            </OnDragStop>
+            <OnClick>
+                CleanUI_ToggleDataStoreUI();
+            </OnClick>
+            <OnEnter>
+                CleanUIDataStore_MouseOver(self);
+            </OnEnter>
+            <OnLeave>
+                CleanUIDataStore_MouseOut(self);
+            </OnLeave>
+        </Scripts>
+    </Button>
+      
+    <Frame name="CleanUIDataStoreFrame" toplevel="true" parent="UIParent" hidden="true" inherits="ButtonFrameTemplate">
+        <Size x="650" y="550"/>
+        
+        <Anchors>
+            <Anchor point="CENTER" x="0" y="0"/>
+        </Anchors>
+        
+        <Frames>
+            <Frame name="CleanUIDataStoreFrameTab1" inherits="CUIDataStoreTabTemplate" id="1">
+                <Anchors>
+                    <Anchor point="TOPLEFT" relativeTo="CleanUIDataStoreFrame" relativePoint="TOPRIGHT" x="-1" y="-17"/>
+                </Anchors>
+            </Frame>
+            <Frame name="CleanUIDataStoreFrameTab2" inherits="CUIDataStoreTabTemplate" id="2">
+                <Anchors>
+                    <Anchor point="TOPLEFT" relativeTo="CleanUIDataStoreFrameTab1" relativePoint="BOTTOMLEFT" x="0" y="0"/>
+                </Anchors>
+            </Frame>
+            <Frame name="CleanUIDataStoreFrameTab3" inherits="CUIDataStoreTabTemplate" id="3">
+                <Anchors>
+                    <Anchor point="TOPLEFT" relativeTo="CleanUIDataStoreFrameTab2" relativePoint="BOTTOMLEFT" x="0" y="0"/>
+                </Anchors>
+            </Frame>
+            <Frame name="CleanUIDataStoreFrameTab4" inherits="CUIDataStoreTabTemplate" id="4">
+                <Anchors>
+                    <Anchor point="TOPLEFT" relativeTo="CleanUIDataStoreFrameTab3" relativePoint="BOTTOMLEFT" x="0" y="0"/>
+                </Anchors>
+            </Frame>
+            <Frame name="CleanUIDataStoreFrameTab5" inherits="CUIDataStoreTabTemplate" id="5">
+                <Anchors>
+                    <Anchor point="TOPLEFT" relativeTo="CleanUIDataStoreFrameTab4" relativePoint="BOTTOMLEFT" x="0" y="0"/>
+                </Anchors>
+            </Frame>
+        
+        
+            <Button name="CleanUIDataStoreFrameClose" inherits="MagicButtonTemplate" text="CANCEL">
+                <Size>
+                    <AbsDimension x="160" y="22"/>
+                </Size>
+                <Anchors>
+                    <Anchor point="BOTTOMRIGHT" x="-5" y="5"/>
+                </Anchors>
+                <Scripts>
+                    <OnClick>
+                        CleanUI_HideDataStoreUI();
+                    </OnClick>
+                </Scripts>
+            </Button>
+            
+            <Button name="CleanUIDataStoreFrameSearch" inherits="MagicButtonTemplate" text="SEARCH">
+                <Size>
+                    <AbsDimension x="80" y="22"/>
+                </Size>
+                <Anchors>
+                    <Anchor point="TOPRIGHT" x="-10" y="-30"/>
+                </Anchors>
+                <Scripts>
+                    <OnClick>
+                        CleanUI_DataStore_Search(CleanUIDataStoreFrameSearchEditBox:GetText());
+                    </OnClick>
+                </Scripts>
+            </Button>
+            
+            <EditBox name="CleanUIDataStoreFrameSearchEditBox" inherits="SearchBoxTemplate" parentKey="searchBox" letters="40" historyLines="0" autoFocus="false">
+				<Size x="145" y="20"/>
+                <Anchors>
+                    <Anchor point="RIGHT" relativeTo="CleanUIDataStoreFrameSearch" relativePoint="LEFT"/>
+                </Anchors>
+                <Scripts>
+                    <OnEscapePressed function="EditBox_ClearFocus"/>
+                    <OnEnterPressed>
+                        CleanUI_DataStore_Search(CleanUIDataStoreFrameSearchEditBox:GetText());
+                    </OnEnterPressed>
+                </Scripts>
+                <FontString inherits="ChatFontNormal"/>
+            </EditBox>
+            
+            <Frame name="$parentMoneyFrame" inherits="SmallMoneyFrameTemplate">
+                <Anchors>
+                    <Anchor point="BOTTOMLEFT" x="8" y="7"/>
+                </Anchors>
+                <Scripts>
+                    <OnLoad>
+                        SmallMoneyFrame_OnLoad(self);
+                        MoneyFrame_SetType(self, "STATIC");
+                    </OnLoad>
+                </Scripts>
+            </Frame>
+        </Frames>
+        <Scripts>
+            <OnShow>
+                UpdateMicroButtons();
+            </OnShow>
+            <OnHide>
+                UpdateMicroButtons();
+            </OnHide>
+        </Scripts>
+    </Frame>  
+    
+    <Button name="CleanUIDataStoreColumnButtonTemplate" virtual="true">
+        <Size>
+            <AbsDimension x="10" y="24"/>
+        </Size>
+        <Scripts>
+            <OnClick function="CleanUIDataStore_SortByColumn"/>
+        </Scripts>
+        <ButtonText>
+            <Anchors>
+                <Anchor point="LEFT" x="8" y="0"/>
+            </Anchors>
+        </ButtonText>
+        <NormalFont style="GameFontHighlightSmall"/>
+        <HighlightTexture name="$parentHighlightTexture" file="Interface\PaperDollInfoFrame\UI-Character-Tab-Highlight" alphaMode="ADD">
+            <Anchors>
+                <Anchor point="TOPLEFT">
+                    <Offset>
+                        <AbsDimension x="-2" y="5"/>
+                    </Offset>
+                </Anchor>
+                <Anchor point="BOTTOMRIGHT">
+                    <Offset>
+                        <AbsDimension x="2" y="-7"/>
+                    </Offset>
+                </Anchor>
+            </Anchors>
+        </HighlightTexture>
+    </Button>
+
+    <Frame name="CleanUIDataStoreHighlightFrame" hidden="true" frameStrata="HIGH">
+        <Anchors>
+            <Anchor point="TOPLEFT"/>
+            <Anchor point="BOTTOMRIGHT"/>
+        </Anchors>
+        <Layers>
+            <Layer level="ARTWORK">
+                <Texture name="CUIConfigAddonsHighlight" file="Interface\QuestFrame\UI-QuestLogTitleHighlight" alphaMode="ADD"/>
+            </Layer>
+        </Layers>
+        <Scripts>
+            <OnLoad>
+                self:SetParent(nil);
+            </OnLoad>
+        </Scripts>
+    </Frame> 
+
+    <Frame name="CleanUIDataStoreHighlightFrame2" hidden="true" frameStrata="HIGH">
+        <Anchors>
+            <Anchor point="TOPLEFT"/>
+            <Anchor point="BOTTOMRIGHT"/>
+        </Anchors>
+        <Layers>
+            <Layer level="ARTWORK">
+                <Texture name="CUIConfigAddonsHighlight" file="Interface\QuestFrame\UI-QuestLogTitleHighlight" alphaMode="ADD"/>
+            </Layer>
+        </Layers>
+        <Scripts>
+            <OnLoad>
+                self:SetParent(nil);
+            </OnLoad>
+        </Scripts>
+    </Frame>  
+      
+    <Frame name="CleanUIDataStoreDataFrameTemplate" virtual="true" hidden="true">
+        <Anchors>
+            <Anchor point="TOPLEFT" x="5" y="-60"/>
+            <Anchor point="BOTTOMRIGHT" x="-5" y="27"/>
+        </Anchors>
+        
+        <Frames>
+            <ScrollFrame name="$parentScrollFrame" parentKey="scrollFrame" inherits="HybridScrollFrameTemplate">
+                <Size>
+                    <AbsDimension x="10" y="10"/>
+                </Size>
+                <Anchors>
+                    <Anchor point="TOPLEFT" x="0" y="-25"/>
+                    <Anchor point="BOTTOMRIGHT" x="-22" y="0"/>
+                </Anchors>
+                <Frames>
+                    <Slider name="$parentScrollBar" inherits="HybridScrollBarTemplate" parentKey="scrollBar">
+                        <Anchors>
+                            <Anchor point="TOPLEFT" relativePoint="TOPRIGHT">
+                                <Offset x="0" y="-13"/>
+                            </Anchor>
+                            <Anchor point="BOTTOMLEFT" relativePoint="BOTTOMRIGHT">
+                                <Offset x="0" y="14"/>
+                            </Anchor>
+                        </Anchors>
+                        <Scripts>
+                            <OnLoad>
+                                local name = self:GetName();
+                                _G[name.."BG"]:Hide();
+                                _G[name.."Top"]:Hide();
+                                _G[name.."Bottom"]:Hide();
+                                _G[name.."Middle"]:Hide();
+                                self.doNotHide = true;
+                            </OnLoad>
+                        </Scripts>
+                    </Slider>
+                </Frames>
+                <Scripts>
+                    <OnMouseWheel>
+                        local scrollBar = self.scrollBar;
+                        if ( scrollBar:IsShown() ) then
+                    		if (IsMacClient()) then
+                            	scrollBar:SetValue(scrollBar:GetValue() - (delta * 22));
+                    		else
+                            	scrollBar:SetValue(scrollBar:GetValue() + (delta * 22));
+                    		end
+                        end
+                    </OnMouseWheel>
+                </Scripts>
+            </ScrollFrame>
+        </Frames>
+    </Frame>  
+</Ui>
