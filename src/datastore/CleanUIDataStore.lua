@@ -247,13 +247,12 @@ function CleanUI_CollectCharacterData()
     data.saveTime = time();
 
     -- base data
-    local name = UnitName("player");
-    local level = UnitLevel("player");
-    local sex = UnitSex("player");
-    data.name = name;
+    data.name =  UnitName("player");
     data.realm = GetRealmName();
-    data.level = level;
-    data.sex = sex;
+    data.level = UnitLevel("player");
+    data.xp = UnitXP("player");
+    data.xpMax = UnitXPMax("player");
+    data.sex = UnitSex("player");
 
     local englishFaction, localizedFaction = UnitFactionGroup("player");
     data.englishFaction = englishFaction;

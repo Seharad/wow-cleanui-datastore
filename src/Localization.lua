@@ -24,6 +24,9 @@ CUI_DS_BIND_LOCATION = "bind location";
 CUI_DS_WRONG_EQUIP_LOC = "wrong item location";
 CUI_DS_WRONG_ITEM_TYPE = "wrong item type";
 
+BINDING_HEADER_CUI_DS = "DataStore";
+BINDING_NAME_CUI_DS_TOGGLE = "open DataStore";
+
 -- German
 if (GetLocale() == "deDE") then
 
@@ -52,5 +55,8 @@ if (GetLocale() == "deDE") then
 
     CUI_DS_WRONG_EQUIP_LOC = "Falscher Ausr\195\188stungsplatz";
     CUI_DS_WRONG_ITEM_TYPE = "Falscher Ausr\195\188stungstyp";
+
+    BINDING_HEADER_CUI_DS = "DataStore";
+    BINDING_NAME_CUI_DS_TOGGLE = "DataStore \195\182ffnen";
 
 end

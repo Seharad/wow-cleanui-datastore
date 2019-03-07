@@ -1,0 +1,8 @@
+<Bindings>
+    <Binding name="CUI_DS_TOGGLE" description="MouseSnap" header="CUI_DS" category="ADDONS" runOnUp="true">
+        if (keystate == "down") then
+        else
+            CleanUIDataStore_ToggleDataStoreUI();
+        end
+    </Binding>
+</Bindings>

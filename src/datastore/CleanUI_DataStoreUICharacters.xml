@@ -167,7 +167,8 @@
                                 </Anchor>
                             </Anchors>
                         </FontString>
-                        <FontString parentKey="level" inherits="SystemFont_OutlineThick_WTF" text="name" justifyH="LEFT" justifyV="TOP">
+                        
+                        <FontString parentKey="guild" inherits="GameFontNormal" text="HEALTH" justifyH="LEFT" justifyV="TOP">
                             <Anchors>
                                 <Anchor point="TOPLEFT" relativeTo="$parent" relativePoint="TOPLEFT">
                                     <Offset>
@@ -175,13 +176,43 @@
                                     </Offset>
                                 </Anchor>
                             </Anchors>
-                        </FontString>
+                        </FontString>   
+
+                        <FontString parentKey="level" inherits="SystemFont_OutlineThick_WTF" text="name" justifyH="LEFT" justifyV="TOP">
+                            <Anchors>
+                                <Anchor point="TOPLEFT" relativeTo="$parent" relativePoint="TOPLEFT">
+                                    <Offset>
+                                        <AbsDimension x="200" y="-70"/>
+                                    </Offset>
+                                </Anchor>
+                            </Anchors>
+                        </FontString>      
+                        
+                        <FontString parentKey="xp_label" inherits="GameFontNormalSmall" text="XP:" justifyH="LEFT" justifyV="TOP">
+                            <Anchors>
+                                <Anchor point="TOPLEFT" relativeTo="$parent" relativePoint="TOPLEFT">
+                                    <Offset>
+                                        <AbsDimension x="200" y="-115"/>
+                                    </Offset>
+                                </Anchor>
+                            </Anchors>
+                        </FontString>   
+                        
+                        <FontString parentKey="xp" inherits="GameFontNormalSmall" text="" justifyH="LEFT" justifyV="TOP">
+                            <Anchors>
+                                <Anchor point="TOPLEFT" relativeTo="$parent" relativePoint="TOPLEFT">
+                                    <Offset>
+                                        <AbsDimension x="240" y="-115"/>
+                                    </Offset>
+                                </Anchor>
+                            </Anchors>
+                        </FontString>   
                         
                         <FontString parentKey="race" inherits="GameFontNormal" text="race" justifyH="LEFT" justifyV="TOP">
                             <Anchors>
                                 <Anchor point="TOPLEFT" relativeTo="$parent" relativePoint="TOPLEFT">
                                     <Offset>
-                                        <AbsDimension x="300" y="-35"/>
+                                        <AbsDimension x="300" y="-70"/>
                                     </Offset>
                                 </Anchor>
                             </Anchors>
@@ -191,21 +222,11 @@
                             <Anchors>
                                 <Anchor point="TOPLEFT" relativeTo="$parent" relativePoint="TOPLEFT">
                                     <Offset>
-                                        <AbsDimension x="300" y="-50"/>
+                                        <AbsDimension x="300" y="-85"/>
                                     </Offset>
                                 </Anchor>
                             </Anchors>
-                        </FontString>
-                        
-                        <FontString parentKey="guild" inherits="GameFontNormal" text="HEALTH" justifyH="LEFT" justifyV="TOP">
-                            <Anchors>
-                                <Anchor point="TOPLEFT" relativeTo="$parent" relativePoint="TOPLEFT">
-                                    <Offset>
-                                        <AbsDimension x="200" y="-70"/>
-                                    </Offset>
-                                </Anchor>
-                            </Anchors>
-                        </FontString>    
+                        </FontString> 
                          
                         <!-- health / mana -->        
                         
@@ -213,7 +234,7 @@
                             <Anchors>
                                 <Anchor point="TOPLEFT" relativeTo="$parent" relativePoint="TOPLEFT">
                                     <Offset>
-                                        <AbsDimension x="200" y="-100"/>
+                                        <AbsDimension x="200" y="-150"/>
                                     </Offset>
                                 </Anchor>
                             </Anchors>
@@ -222,7 +243,7 @@
                             <Anchors>
                                 <Anchor point="TOPRIGHT" relativeTo="$parent" relativePoint="TOPLEFT">
                                     <Offset>
-                                        <AbsDimension x="325" y="-100"/>
+                                        <AbsDimension x="325" y="-150"/>
                                     </Offset>
                                 </Anchor>
                             </Anchors>
@@ -232,7 +253,7 @@
                             <Anchors>
                                 <Anchor point="TOPLEFT" relativeTo="$parent" relativePoint="TOPLEFT">
                                     <Offset>
-                                        <AbsDimension x="200" y="-115"/>
+                                        <AbsDimension x="200" y="-165"/>
                                     </Offset>
                                 </Anchor>
                             </Anchors>
@@ -241,7 +262,7 @@
                             <Anchors>
                                 <Anchor point="TOPRIGHT" relativeTo="$parent" relativePoint="TOPLEFT">
                                     <Offset>
-                                        <AbsDimension x="325" y="-115"/>
+                                        <AbsDimension x="325" y="-165"/>
                                     </Offset>
                                 </Anchor>
                             </Anchors>
@@ -253,7 +274,7 @@
                             <Anchors>
                                 <Anchor point="TOPLEFT" relativeTo="$parent" relativePoint="TOPLEFT">
                                     <Offset>
-                                        <AbsDimension x="400" y="-100"/>
+                                        <AbsDimension x="400" y="-150"/>
                                     </Offset>
                                 </Anchor>
                             </Anchors>
@@ -262,7 +283,7 @@
                             <Anchors>
                                 <Anchor point="TOPRIGHT" relativeTo="$parent" relativePoint="TOPLEFT">
                                     <Offset>
-                                        <AbsDimension x="525" y="-100"/>
+                                        <AbsDimension x="525" y="-150"/>
                                     </Offset>
                                 </Anchor>
                             </Anchors>
@@ -272,7 +293,7 @@
                             <Anchors>
                                 <Anchor point="TOPLEFT" relativeTo="$parent" relativePoint="TOPLEFT">
                                     <Offset>
-                                        <AbsDimension x="400" y="-115"/>
+                                        <AbsDimension x="400" y="-165"/>
                                     </Offset>
                                 </Anchor>
                             </Anchors>
@@ -281,7 +302,7 @@
                             <Anchors>
                                 <Anchor point="TOPRIGHT" relativeTo="$parent" relativePoint="TOPLEFT">
                                     <Offset>
-                                        <AbsDimension x="525" y="-115"/>
+                                        <AbsDimension x="525" y="-165"/>
                                     </Offset>
                                 </Anchor>
                             </Anchors>
@@ -291,7 +312,7 @@
                             <Anchors>
                                 <Anchor point="TOPLEFT" relativeTo="$parent" relativePoint="TOPLEFT">
                                     <Offset>
-                                        <AbsDimension x="400" y="-130"/>
+                                        <AbsDimension x="400" y="-180"/>
                                     </Offset>
                                 </Anchor>
                             </Anchors>
@@ -300,7 +321,7 @@
                             <Anchors>
                                 <Anchor point="TOPRIGHT" relativeTo="$parent" relativePoint="TOPLEFT">
                                     <Offset>
-                                        <AbsDimension x="525" y="-130"/>
+                                        <AbsDimension x="525" y="-180"/>
                                     </Offset>
                                 </Anchor>
                             </Anchors>
@@ -310,7 +331,7 @@
                             <Anchors>
                                 <Anchor point="TOPLEFT" relativeTo="$parent" relativePoint="TOPLEFT">
                                     <Offset>
-                                        <AbsDimension x="400" y="-145"/>
+                                        <AbsDimension x="400" y="-195"/>
                                     </Offset>
                                 </Anchor>
                             </Anchors>
@@ -319,7 +340,7 @@
                             <Anchors>
                                 <Anchor point="TOPRIGHT" relativeTo="$parent" relativePoint="TOPLEFT">
                                     <Offset>
-                                        <AbsDimension x="525" y="-145"/>
+                                        <AbsDimension x="525" y="-195"/>
                                     </Offset>
                                 </Anchor>
                             </Anchors>

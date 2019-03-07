@@ -80,7 +80,7 @@ function CleanUI_DataStoreUI_CreateColumnHeader(parent, width, text, sortId, ref
     return button;
 end
 
-function CleanUI_ToggleDataStoreUI()
+function CleanUIDataStore_ToggleDataStoreUI()
     if (not CleanUIDataStoreFrame:IsVisible()) then
         CleanUI_DataStoreCollectAll();
         ShowUIPanel(CleanUIDataStoreFrame);

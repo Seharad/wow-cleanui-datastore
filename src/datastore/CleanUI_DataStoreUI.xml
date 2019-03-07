@@ -125,7 +125,7 @@
                 CleanUIDataStore_MinimapButton_DraggingFrame:Hide();
             </OnDragStop>
             <OnClick>
-                CleanUI_ToggleDataStoreUI();
+                CleanUIDataStore_ToggleDataStoreUI();
             </OnClick>
             <OnEnter>
                 CleanUIDataStore_MouseOver(self);

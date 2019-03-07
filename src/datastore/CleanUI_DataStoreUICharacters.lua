@@ -243,7 +243,20 @@ function CleanUI_DataStoreUIUpdateCharacterSelection()
 
     -- level
     info.level:SetText(HIGHLIGHT_FONT_COLOR_CODE..baseData.level..FONT_COLOR_CODE_CLOSE);
+    
+    local xp = baseData.xp;
+    local xpMax = baseData.xpMax;
 
+    if (baseData.level < MAX_PLAYER_LEVEL and xp and xpMax and xp < xpMax) then
+        info.xp:SetText(HIGHLIGHT_FONT_COLOR_CODE..BreakUpLargeNumbers(xp).." / "..BreakUpLargeNumbers(xpMax).."    ("..floor( (xp / xpMax) * 100 ).."%)"..FONT_COLOR_CODE_CLOSE);
+        info.xp_label:Show();
+        info.xp:Show();
+    else
+        info.xp_label:Hide();
+        info.xp:Hide();
+    end
+
+ 
     -- race/class/pvp
     local classColor = RAID_CLASS_COLORS[baseData.class.englishClass];
     local classColorText = string.format("ff%.2x%.2x%.2x", classColor.r * 255, classColor.g * 255, classColor.b * 255);
