@@ -1,7 +1,7 @@
 <Ui xmlns="http://www.blizzard.com/wow/ui/" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://www.blizzard.com/wow/ui/
 ..\FrameXML\UI.xsd">
     
-    <Button name="CleanUIDataStoreEquipmentSlotButtonTemplate" inherits="ItemButtonTemplate" virtual="true" hidden="true"> 
+    <ItemButton name="CleanUIDataStoreEquipmentSlotButtonTemplate" virtual="true" hidden="true"> 
         <Size>
             <AbsDimension x="24" y="24"/>
         </Size> 
@@ -16,7 +16,7 @@
                 CleanUIDataStoreEquipmentSlot_OnClick(self, button, down);
             </OnClick>
         </Scripts>
-    </Button> 
+    </ItemButton> 
 
     <Button name="CleanUIDataStoreEquipmentTemplate" virtual="true">   
         <Size>
@@ -35,86 +35,86 @@
         </Scripts>
         
         <Frames>      
-            <Button name="$parentItem1" inherits="CleanUIDataStoreEquipmentSlotButtonTemplate">
+            <ItemButton name="$parentItem1" inherits="CleanUIDataStoreEquipmentSlotButtonTemplate">
                 <Anchors>
                     <Anchor point="LEFT" x="215" y="0"/>
                 </Anchors>
-            </Button>
-            <Button name="$parentItem2" inherits="CleanUIDataStoreEquipmentSlotButtonTemplate">
+            </ItemButton>
+            <ItemButton name="$parentItem2" inherits="CleanUIDataStoreEquipmentSlotButtonTemplate">
                 <Anchors>
                     <Anchor point="LEFT" relativeTo="$parentItem1" relativePoint="RIGHT" x="1" y="0"/>
                 </Anchors>
-            </Button>
-            <Button name="$parentItem3" inherits="CleanUIDataStoreEquipmentSlotButtonTemplate">
+            </ItemButton>
+            <ItemButton name="$parentItem3" inherits="CleanUIDataStoreEquipmentSlotButtonTemplate">
                 <Anchors>
                     <Anchor point="LEFT" relativeTo="$parentItem2" relativePoint="RIGHT" x="1" y="0"/>
                 </Anchors>
-            </Button>
-            <Button name="$parentItem4" inherits="CleanUIDataStoreEquipmentSlotButtonTemplate">
+            </ItemButton>
+            <ItemButton name="$parentItem4" inherits="CleanUIDataStoreEquipmentSlotButtonTemplate">
                 <Anchors>
                     <Anchor point="LEFT" relativeTo="$parentItem3" relativePoint="RIGHT" x="1" y="0"/>
                 </Anchors>
-            </Button>
-            <Button name="$parentItem5" inherits="CleanUIDataStoreEquipmentSlotButtonTemplate">
+            </ItemButton>
+            <ItemButton name="$parentItem5" inherits="CleanUIDataStoreEquipmentSlotButtonTemplate">
                 <Anchors>
                     <Anchor point="LEFT" relativeTo="$parentItem4" relativePoint="RIGHT" x="1" y="0"/>
                 </Anchors>
-            </Button>
-            <Button name="$parentItem6" inherits="CleanUIDataStoreEquipmentSlotButtonTemplate">
+            </ItemButton>
+            <ItemButton name="$parentItem6" inherits="CleanUIDataStoreEquipmentSlotButtonTemplate">
                 <Anchors>
                     <Anchor point="LEFT" relativeTo="$parentItem5" relativePoint="RIGHT" x="1" y="0"/>
                 </Anchors>
-            </Button>
-            <Button name="$parentItem7" inherits="CleanUIDataStoreEquipmentSlotButtonTemplate">
+            </ItemButton>
+            <ItemButton name="$parentItem7" inherits="CleanUIDataStoreEquipmentSlotButtonTemplate">
                 <Anchors>
                     <Anchor point="LEFT" relativeTo="$parentItem6" relativePoint="RIGHT" x="1" y="0"/>
                 </Anchors>
-            </Button>
-            <Button name="$parentItem8" inherits="CleanUIDataStoreEquipmentSlotButtonTemplate">
+            </ItemButton>
+            <ItemButton name="$parentItem8" inherits="CleanUIDataStoreEquipmentSlotButtonTemplate">
                 <Anchors>
                     <Anchor point="LEFT" relativeTo="$parentItem7" relativePoint="RIGHT" x="1" y="0"/>
                 </Anchors>
-            </Button>
-            <Button name="$parentItem9" inherits="CleanUIDataStoreEquipmentSlotButtonTemplate">
+            </ItemButton>
+            <ItemButton name="$parentItem9" inherits="CleanUIDataStoreEquipmentSlotButtonTemplate">
                 <Anchors>
                     <Anchor point="LEFT" relativeTo="$parentItem8" relativePoint="RIGHT" x="1" y="0"/>
                 </Anchors>
-            </Button>
-            <Button name="$parentItem10" inherits="CleanUIDataStoreEquipmentSlotButtonTemplate">
+            </ItemButton>
+            <ItemButton name="$parentItem10" inherits="CleanUIDataStoreEquipmentSlotButtonTemplate">
                 <Anchors>
                     <Anchor point="LEFT" relativeTo="$parentItem9" relativePoint="RIGHT" x="1" y="0"/>
                 </Anchors>
-            </Button>
-            <Button name="$parentItem11" inherits="CleanUIDataStoreEquipmentSlotButtonTemplate">
+            </ItemButton>
+            <ItemButton name="$parentItem11" inherits="CleanUIDataStoreEquipmentSlotButtonTemplate">
                 <Anchors>
                     <Anchor point="LEFT" relativeTo="$parentItem10" relativePoint="RIGHT" x="1" y="0"/>
                 </Anchors>
-            </Button>
-            <Button name="$parentItem12" inherits="CleanUIDataStoreEquipmentSlotButtonTemplate">
+            </ItemButton>
+            <ItemButton name="$parentItem12" inherits="CleanUIDataStoreEquipmentSlotButtonTemplate">
                 <Anchors>
                     <Anchor point="LEFT" relativeTo="$parentItem11" relativePoint="RIGHT" x="1" y="0"/>
                 </Anchors>
-            </Button>
-            <Button name="$parentItem13" inherits="CleanUIDataStoreEquipmentSlotButtonTemplate">
+            </ItemButton>
+            <ItemButton name="$parentItem13" inherits="CleanUIDataStoreEquipmentSlotButtonTemplate">
                 <Anchors>
                     <Anchor point="LEFT" relativeTo="$parentItem12" relativePoint="RIGHT" x="1" y="0"/>
                 </Anchors>
-            </Button>
-            <Button name="$parentItem14" inherits="CleanUIDataStoreEquipmentSlotButtonTemplate">
+            </ItemButton>
+            <ItemButton name="$parentItem14" inherits="CleanUIDataStoreEquipmentSlotButtonTemplate">
                 <Anchors>
                     <Anchor point="LEFT" relativeTo="$parentItem13" relativePoint="RIGHT" x="1" y="0"/>
                 </Anchors>
-            </Button>
-            <Button name="$parentItem15" inherits="CleanUIDataStoreEquipmentSlotButtonTemplate">
+            </ItemButton>
+            <ItemButton name="$parentItem15" inherits="CleanUIDataStoreEquipmentSlotButtonTemplate">
                 <Anchors>
                     <Anchor point="LEFT" relativeTo="$parentItem14" relativePoint="RIGHT" x="1" y="0"/>
                 </Anchors>
-            </Button>
-            <Button name="$parentItem16" inherits="CleanUIDataStoreEquipmentSlotButtonTemplate">
+            </ItemButton>
+            <ItemButton name="$parentItem16" inherits="CleanUIDataStoreEquipmentSlotButtonTemplate">
                 <Anchors>
                     <Anchor point="LEFT" relativeTo="$parentItem15" relativePoint="RIGHT" x="1" y="0"/>
                 </Anchors>
-            </Button>
+            </ItemButton>
         </Frames>
 
         <ButtonText name="$parentName" nonspacewrap="true" parentKey="name">

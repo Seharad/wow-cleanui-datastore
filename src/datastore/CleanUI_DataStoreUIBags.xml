@@ -84,7 +84,7 @@
         <DisabledFont style="GameFontHighlightLeft"/>
     </Button> 
     
-    <Button name="CleanUIDataStoreBagItemButtonTemplate" inherits="ItemButtonTemplate" frameStrata="HIGH" virtual="true" hidden="true"> 
+    <ItemButton name="CleanUIDataStoreBagItemButtonTemplate" frameStrata="HIGH" virtual="true" hidden="true"> 
         <Size>
             <AbsDimension x="36" y="36"/>
         </Size> 
@@ -96,7 +96,7 @@
                 CleanUIDataStore_HideTooltip(self);
             </OnLeave>
         </Scripts>
-    </Button> 
+    </ItemButton> 
       
     <Button name="CleanUIDataStoreBagItemsTemplate" virtual="true">   
         <Size>
@@ -104,86 +104,86 @@
         </Size> 
         
         <Frames>  
-            <Button name="$parentItem1" inherits="CleanUIDataStoreBagItemButtonTemplate">
+            <ItemButton name="$parentItem1" inherits="CleanUIDataStoreBagItemButtonTemplate">
                 <Anchors>
                     <Anchor point="LEFT" x="0" y="0"/>
                 </Anchors>
-            </Button>
-            <Button name="$parentItem2" inherits="CleanUIDataStoreBagItemButtonTemplate">
+            </ItemButton>
+            <ItemButton name="$parentItem2" inherits="CleanUIDataStoreBagItemButtonTemplate">
                 <Anchors>
                     <Anchor point="LEFT" x="38" y="0"/>
                 </Anchors>
-            </Button>
-            <Button name="$parentItem3" inherits="CleanUIDataStoreBagItemButtonTemplate">
+            </ItemButton>
+            <ItemButton name="$parentItem3" inherits="CleanUIDataStoreBagItemButtonTemplate">
                 <Anchors>
                     <Anchor point="LEFT" x="76" y="0"/>
                 </Anchors>
-            </Button>
-            <Button name="$parentItem4" inherits="CleanUIDataStoreBagItemButtonTemplate">
+            </ItemButton>
+            <ItemButton name="$parentItem4" inherits="CleanUIDataStoreBagItemButtonTemplate">
                 <Anchors>
                     <Anchor point="LEFT" x="114" y="0"/>
                 </Anchors>
-            </Button>
-            <Button name="$parentItem5" inherits="CleanUIDataStoreBagItemButtonTemplate">
+            </ItemButton>
+            <ItemButton name="$parentItem5" inherits="CleanUIDataStoreBagItemButtonTemplate">
                 <Anchors>
                     <Anchor point="LEFT" x="152" y="0"/>
                 </Anchors>
-            </Button>
-            <Button name="$parentItem6" inherits="CleanUIDataStoreBagItemButtonTemplate">
+            </ItemButton>
+            <ItemButton name="$parentItem6" inherits="CleanUIDataStoreBagItemButtonTemplate">
                 <Anchors>
                     <Anchor point="LEFT" x="190" y="0"/>
                 </Anchors>
-            </Button>
-            <Button name="$parentItem7" inherits="CleanUIDataStoreBagItemButtonTemplate">
+            </ItemButton>
+            <ItemButton name="$parentItem7" inherits="CleanUIDataStoreBagItemButtonTemplate">
                 <Anchors>
                     <Anchor point="LEFT" x="228" y="0"/>
                 </Anchors>
-            </Button>
-            <Button name="$parentItem8" inherits="CleanUIDataStoreBagItemButtonTemplate">
+            </ItemButton>
+            <ItemButton name="$parentItem8" inherits="CleanUIDataStoreBagItemButtonTemplate">
                 <Anchors>
                     <Anchor point="LEFT" x="266" y="0"/>
                 </Anchors>
-            </Button>
-            <Button name="$parentItem9" inherits="CleanUIDataStoreBagItemButtonTemplate">
+            </ItemButton>
+            <ItemButton name="$parentItem9" inherits="CleanUIDataStoreBagItemButtonTemplate">
                 <Anchors>
                     <Anchor point="LEFT" x="304" y="0"/>
                 </Anchors>
-            </Button>
-            <Button name="$parentItem10" inherits="CleanUIDataStoreBagItemButtonTemplate">
+            </ItemButton>
+            <ItemButton name="$parentItem10" inherits="CleanUIDataStoreBagItemButtonTemplate">
                 <Anchors>
                     <Anchor point="LEFT" x="342" y="0"/>
                 </Anchors>
-            </Button>
-            <Button name="$parentItem11" inherits="CleanUIDataStoreBagItemButtonTemplate">
+            </ItemButton>
+            <ItemButton name="$parentItem11" inherits="CleanUIDataStoreBagItemButtonTemplate">
                 <Anchors>
                     <Anchor point="LEFT" x="380" y="0"/>
                 </Anchors>
-            </Button>
-            <Button name="$parentItem12" inherits="CleanUIDataStoreBagItemButtonTemplate">
+            </ItemButton>
+            <ItemButton name="$parentItem12" inherits="CleanUIDataStoreBagItemButtonTemplate">
                 <Anchors>
                     <Anchor point="LEFT" x="418" y="0"/>
                 </Anchors>
-            </Button>
-            <Button name="$parentItem13" inherits="CleanUIDataStoreBagItemButtonTemplate">
+            </ItemButton>
+            <ItemButton name="$parentItem13" inherits="CleanUIDataStoreBagItemButtonTemplate">
                 <Anchors>
                     <Anchor point="LEFT" x="456" y="0"/>
                 </Anchors>
-            </Button>
-            <Button name="$parentItem14" inherits="CleanUIDataStoreBagItemButtonTemplate">
+            </ItemButton>
+            <ItemButton name="$parentItem14" inherits="CleanUIDataStoreBagItemButtonTemplate">
                 <Anchors>
                     <Anchor point="LEFT" x="494" y="0"/>
                 </Anchors>
-            </Button>
-            <Button name="$parentItem15" inherits="CleanUIDataStoreBagItemButtonTemplate">
+            </ItemButton>
+            <ItemButton name="$parentItem15" inherits="CleanUIDataStoreBagItemButtonTemplate">
                 <Anchors>
                     <Anchor point="LEFT" x="532" y="0"/>
                 </Anchors>
-            </Button>
-            <Button name="$parentItem16" inherits="CleanUIDataStoreBagItemButtonTemplate">
+            </ItemButton>
+            <ItemButton name="$parentItem16" inherits="CleanUIDataStoreBagItemButtonTemplate">
                 <Anchors>
                     <Anchor point="LEFT" x="570" y="0"/>
                 </Anchors>
-            </Button>
+            </ItemButton>
         </Frames>    
 
         <ButtonText name="$parentName" nonspacewrap="true" parentKey="name">

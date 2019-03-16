@@ -64,7 +64,7 @@
         <DisabledFont style="GameFontHighlightLeft"/>    
                 
         <Frames>    
-		    <Button name="$parentItemButton" parentKey="itemButton" inherits="ItemButtonTemplate"> 
+		    <ItemButton name="$parentItemButton" parentKey="itemButton"> 
 		        <Size>
 		            <AbsDimension x="36" y="36"/>
 		        </Size>
@@ -83,7 +83,7 @@
 		                CleanUIDataStoreSearchItem_OnLeave(self);
 		            </OnLeave>
 		        </Scripts>
-		    </Button> 
+		    </ItemButton> 
         </Frames>
     </Button>
 

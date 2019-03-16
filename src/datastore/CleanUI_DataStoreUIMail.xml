@@ -1,7 +1,7 @@
 <Ui xmlns="http://www.blizzard.com/wow/ui/" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://www.blizzard.com/wow/ui/
 ..\FrameXML\UI.xsd">
     
-    <Button name="CleanUIDataStoreMailItemSlotButtonTemplate" inherits="ItemButtonTemplate" virtual="true" hidden="true">
+    <ItemButton name="CleanUIDataStoreMailItemSlotButtonTemplate" virtual="true" hidden="true">
         <Scripts>
             <OnEnter>
                 CleanUIDataStoreMailItem_OnEnter(self);
@@ -10,7 +10,7 @@
                 CleanUIDataStore_HideTooltip(self);
             </OnLeave>
         </Scripts>
-    </Button> 
+    </ItemButton> 
       
     <Button name="CleanUIDataStoreMailTemplate" virtual="true">   
         <Size>
@@ -231,68 +231,68 @@
                         
                         <Frames>
     
-                            <Button name="CleanUIDataStoreMailFrameItem1" inherits="CleanUIDataStoreMailItemSlotButtonTemplate">
+                            <ItemButton name="CleanUIDataStoreMailFrameItem1" inherits="CleanUIDataStoreMailItemSlotButtonTemplate">
                                 <Anchors>
                                     <Anchor point="TOPLEFT" x="255" y="-30"/>
                                 </Anchors>
-                            </Button>
-                            <Button name="CleanUIDataStoreMailFrameItem2" inherits="CleanUIDataStoreMailItemSlotButtonTemplate">
+                            </ItemButton>
+                            <ItemButton name="CleanUIDataStoreMailFrameItem2" inherits="CleanUIDataStoreMailItemSlotButtonTemplate">
                                 <Anchors>
                                     <Anchor point="TOPLEFT" x="295" y="-30"/>
                                 </Anchors>
-                            </Button>
-                            <Button name="CleanUIDataStoreMailFrameItem3" inherits="CleanUIDataStoreMailItemSlotButtonTemplate">
+                            </ItemButton>
+                            <ItemButton name="CleanUIDataStoreMailFrameItem3" inherits="CleanUIDataStoreMailItemSlotButtonTemplate">
                                 <Anchors>
                                     <Anchor point="TOPLEFT" x="335" y="-30"/>
                                 </Anchors>
-                            </Button>    
-                            <Button name="CleanUIDataStoreMailFrameItem4" inherits="CleanUIDataStoreMailItemSlotButtonTemplate">
+                            </ItemButton>    
+                            <ItemButton name="CleanUIDataStoreMailFrameItem4" inherits="CleanUIDataStoreMailItemSlotButtonTemplate">
                                 <Anchors>
                                     <Anchor point="TOPLEFT" x="375" y="-30"/>
                                 </Anchors>
-                            </Button>
+                            </ItemButton>
                             
-                            <Button name="CleanUIDataStoreMailFrameItem5" inherits="CleanUIDataStoreMailItemSlotButtonTemplate">
+                            <ItemButton name="CleanUIDataStoreMailFrameItem5" inherits="CleanUIDataStoreMailItemSlotButtonTemplate">
                                 <Anchors>
                                     <Anchor point="TOPLEFT" x="255" y="-70"/>
                                 </Anchors>
-                            </Button>
-                            <Button name="CleanUIDataStoreMailFrameItem6" inherits="CleanUIDataStoreMailItemSlotButtonTemplate">
+                            </ItemButton>
+                            <ItemButton name="CleanUIDataStoreMailFrameItem6" inherits="CleanUIDataStoreMailItemSlotButtonTemplate">
                                 <Anchors>
                                     <Anchor point="TOPLEFT" x="295" y="-70"/>
                                 </Anchors>
-                            </Button>    
-                            <Button name="CleanUIDataStoreMailFrameItem7" inherits="CleanUIDataStoreMailItemSlotButtonTemplate">
+                            </ItemButton>    
+                            <ItemButton name="CleanUIDataStoreMailFrameItem7" inherits="CleanUIDataStoreMailItemSlotButtonTemplate">
                                 <Anchors>
                                     <Anchor point="TOPLEFT" x="335" y="-70"/>
                                 </Anchors>
-                            </Button>
-                            <Button name="CleanUIDataStoreMailFrameItem8" inherits="CleanUIDataStoreMailItemSlotButtonTemplate">
+                            </ItemButton>
+                            <ItemButton name="CleanUIDataStoreMailFrameItem8" inherits="CleanUIDataStoreMailItemSlotButtonTemplate">
                                 <Anchors>
                                     <Anchor point="TOPLEFT" x="375" y="-70"/>
                                 </Anchors>
-                            </Button>
+                            </ItemButton>
                             
-                            <Button name="CleanUIDataStoreMailFrameItem9" inherits="CleanUIDataStoreMailItemSlotButtonTemplate">
+                            <ItemButton name="CleanUIDataStoreMailFrameItem9" inherits="CleanUIDataStoreMailItemSlotButtonTemplate">
                                 <Anchors>
                                     <Anchor point="TOPLEFT" x="255" y="-110"/>
                                 </Anchors>
-                            </Button>    
-                            <Button name="CleanUIDataStoreMailFrameItem10" inherits="CleanUIDataStoreMailItemSlotButtonTemplate">
+                            </ItemButton>    
+                            <ItemButton name="CleanUIDataStoreMailFrameItem10" inherits="CleanUIDataStoreMailItemSlotButtonTemplate">
                                 <Anchors>
                                     <Anchor point="TOPLEFT" x="295" y="-110"/>
                                 </Anchors>
-                            </Button>
-                            <Button name="CleanUIDataStoreMailFrameItem11" inherits="CleanUIDataStoreMailItemSlotButtonTemplate">
+                            </ItemButton>
+                            <ItemButton name="CleanUIDataStoreMailFrameItem11" inherits="CleanUIDataStoreMailItemSlotButtonTemplate">
                                 <Anchors>
                                     <Anchor point="TOPLEFT" x="335" y="-110"/>
                                 </Anchors>
-                            </Button>
-                            <Button name="CleanUIDataStoreMailFrameItem12" inherits="CleanUIDataStoreMailItemSlotButtonTemplate">
+                            </ItemButton>
+                            <ItemButton name="CleanUIDataStoreMailFrameItem12" inherits="CleanUIDataStoreMailItemSlotButtonTemplate">
                                 <Anchors>
                                     <Anchor point="TOPLEFT" x="375" y="-110"/>
                                 </Anchors>
-                            </Button>
+                            </ItemButton>
                             
 				            <Frame name="CleanUIDataStoreMailFrameMoneyFrame" inherits="SmallMoneyFrameTemplate">
 				                <Anchors>
