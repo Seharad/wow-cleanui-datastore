@@ -40,10 +40,14 @@ function CleanUI_DataStore_Tooltip_AppendItemData(tooltip, link)
     end
 
     local itemId = CleanUI_DataStore_GetIdFromLink(link);
+    
+    --cui_debug(itemId)
     -- TODO exceptions konfigurierbar machen
     if (itemId == 6948 -- Ruhestein
         or itemId == 110560 -- Garnisonsruhestein
+        or itemId == 140192 -- Dalaran Ruhestein
         or itemId == 109167 -- Findels Plünderang
+        or itemId == 141605 -- Pfeife des Flugmeisters
         or itemId == 0 -- unknown
         ) then
         return;
