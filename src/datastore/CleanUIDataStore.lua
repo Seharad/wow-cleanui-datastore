@@ -120,7 +120,7 @@ function CleanUI_DataStoreCheckData()
 end
 
 function CleanUI_DataStoreGotoMail()
-    CleanUI_ToggleDataStoreUI();
+    CleanUIDataStore_ToggleDataStoreUI();
     CleanUIDataStore_ToggleCategory(2);
 end
 
