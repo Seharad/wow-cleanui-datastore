@@ -2,7 +2,7 @@
 ## Title: @@title@@
 ## Author: @@author@@
 ## Version: @@version@@
-## Notes: Collects some nice features
+## Notes: Collects alt data
 ## DefaultState: Enabled
 ## LoadOnDemand: 0
 ## OptionalDeps: Masque
