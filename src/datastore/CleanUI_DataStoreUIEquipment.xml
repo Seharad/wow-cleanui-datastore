@@ -37,7 +37,7 @@
         <Frames>      
             <ItemButton name="$parentItem1" inherits="CleanUIDataStoreEquipmentSlotButtonTemplate">
                 <Anchors>
-                    <Anchor point="LEFT" x="215" y="0"/>
+                    <Anchor point="LEFT" x="200" y="0"/>
                 </Anchors>
             </ItemButton>
             <ItemButton name="$parentItem2" inherits="CleanUIDataStoreEquipmentSlotButtonTemplate">

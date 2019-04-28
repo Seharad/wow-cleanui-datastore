@@ -8,12 +8,12 @@ local filter = nil;
 
 function CleanUI_InitDataStoreUIBags()
     -- bags columns
-    local bagsNameColumn = CleanUI_DataStoreUI_CreateColumnHeader(CleanUIDataStoreBagsFrame, 200, NAME, "BAGS_NAME", nil);
-    local bagsLvlColumn = CleanUI_DataStoreUI_CreateColumnHeader(CleanUIDataStoreBagsFrame, 45, LEVEL_ABBR, "BAGS_LVL", bagsNameColumn);
+    local bagsNameColumn = CleanUI_DataStoreUI_CreateColumnHeader(CleanUIDataStoreBagsFrame, 185, NAME, "BAGS_NAME", nil);
+    local bagsLvlColumn = CleanUI_DataStoreUI_CreateColumnHeader(CleanUIDataStoreBagsFrame, 50, LEVEL_ABBR, "BAGS_LVL", bagsNameColumn);
     local bagsUsageColumn = CleanUI_DataStoreUI_CreateColumnHeader(CleanUIDataStoreBagsFrame, 110, CUI_DATASTORE_BAGS, "BAGS_USAGE", bagsLvlColumn);
-    local bagsFreeColumn = CleanUI_DataStoreUI_CreateColumnHeader(CleanUIDataStoreBagsFrame, 45, CUI_DATASTORE_FREE, "BAGS_FREE", bagsUsageColumn);
+    local bagsFreeColumn = CleanUI_DataStoreUI_CreateColumnHeader(CleanUIDataStoreBagsFrame, 50, CUI_DATASTORE_FREE, "BAGS_FREE", bagsUsageColumn);
     local bankUsageColumn = CleanUI_DataStoreUI_CreateColumnHeader(CleanUIDataStoreBagsFrame, 160, CUI_DATASTORE_BANK, "BAGS_BANK_USAGE", bagsFreeColumn);
-    local bankFreeColumn = CleanUI_DataStoreUI_CreateColumnHeader(CleanUIDataStoreBagsFrame, 45, CUI_DATASTORE_FREE, "BAGS_BANK_FREE", bankUsageColumn);
+    local bankFreeColumn = CleanUI_DataStoreUI_CreateColumnHeader(CleanUIDataStoreBagsFrame, 50, CUI_DATASTORE_FREE, "BAGS_BANK_FREE", bankUsageColumn);
 end
 
 function CleanUI_DataStoreUISortBagsBy(sortKey)

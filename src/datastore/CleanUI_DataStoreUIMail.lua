@@ -4,9 +4,9 @@ local selectedMail = nil;
 
 function CleanUI_InitDataStoreUIMail()
     -- mail columns
-    local mailNameColumn = CleanUI_DataStoreUI_CreateColumnHeader(CleanUIDataStoreMailFrame, 200, NAME, "MAIL_NAME", nil);
+    local mailNameColumn = CleanUI_DataStoreUI_CreateColumnHeader(CleanUIDataStoreMailFrame, 185, NAME, "MAIL_NAME", nil);
     local mailTotalColumn = CleanUI_DataStoreUI_CreateColumnHeader(CleanUIDataStoreMailFrame, 60, TOTAL, "MAIL_TOTAL", mailNameColumn);
-    local mailItemsColumn = CleanUI_DataStoreUI_CreateColumnHeader(CleanUIDataStoreMailFrame, 85, ITEMS, "MAIL_ITEMS", mailTotalColumn);
+    local mailItemsColumn = CleanUI_DataStoreUI_CreateColumnHeader(CleanUIDataStoreMailFrame, 100, ITEMS, "MAIL_ITEMS", mailTotalColumn);
 
     MoneyFrame_SetMaxDisplayWidth(CleanUIDataStoreMailFrameMoneyFrame, 180);
 end

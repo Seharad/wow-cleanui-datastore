@@ -37,12 +37,12 @@ StaticPopupDialogs["CLEANUI_DELETE_GUID"] = {
 
 function CleanUI_InitDataStoreUICharacters()
     -- character columns
-    local characterNameColumn = CleanUI_DataStoreUI_CreateColumnHeader(CleanUIDataStoreCharacterFrame, 200, NAME, "CHAR_NAME", nil);
+    local characterNameColumn = CleanUI_DataStoreUI_CreateColumnHeader(CleanUIDataStoreCharacterFrame, 185, NAME, "CHAR_NAME", nil);
     local characterLvlColumn = CleanUI_DataStoreUI_CreateColumnHeader(CleanUIDataStoreCharacterFrame, 45, LEVEL_ABBR, "CHAR_LVL", characterNameColumn);
     local characterFactionColumn = CleanUI_DataStoreUI_CreateColumnHeader(CleanUIDataStoreCharacterFrame, 40, "A/H", "CHAR_FACTION", characterLvlColumn);
     local characterMoneyColumn = CleanUI_DataStoreUI_CreateColumnHeader(CleanUIDataStoreCharacterFrame, 120, MONEY, "CHAR_MONEY", characterFactionColumn);
     local characterAilColumn = CleanUI_DataStoreUI_CreateColumnHeader(CleanUIDataStoreCharacterFrame, 55, "aIL", "CHAR_AIL", characterMoneyColumn);
-    local characterLastOnlineColumn = CleanUI_DataStoreUI_CreateColumnHeader(CleanUIDataStoreCharacterFrame, 115, LASTONLINE, "CHAR_LASTONLINE", characterAilColumn);
+    local characterLastOnlineColumn = CleanUI_DataStoreUI_CreateColumnHeader(CleanUIDataStoreCharacterFrame, 130, LASTONLINE, "CHAR_LASTONLINE", characterAilColumn);
 end
 
 function CleanUI_DataStoreUISortCharactersBy(sortKey)
@@ -168,7 +168,8 @@ function CleanUI_DataStoreUIUpdateCharacterData()
                 if (UnitGUID("player") == act.data.guid) then
                     act.lastOnline:SetText(GREEN_FONT_COLOR_CODE..GUILD_ONLINE_LABEL..FONT_COLOR_CODE_CLOSE);
                 else
-                    act.lastOnline:SetText(HIGHLIGHT_FONT_COLOR_CODE..FriendsFrame_GetLastOnline(act.data.saveTime, false)..FONT_COLOR_CODE_CLOSE);
+                    local onlineLabel = string.format(BNET_LAST_ONLINE_TIME, FriendsFrame_GetLastOnline(act.data.saveTime, false));
+                    act.lastOnline:SetText(HIGHLIGHT_FONT_COLOR_CODE..onlineLabel..FONT_COLOR_CODE_CLOSE);
                 end
             else
                 act.lastOnline:SetText(GRAY_FONT_COLOR_CODE..UNKNOWN..FONT_COLOR_CODE_CLOSE);
@@ -219,6 +220,14 @@ function CleanUI_DataStoreUIDeleteData()
     CleanUI_DataStoreUIUpdateCharacterSelection();
 end
 
+local function professionsPercentage(min, max)
+    if (min < max) then
+        return HIGHLIGHT_FONT_COLOR_CODE..min.."/"..max..FONT_COLOR_CODE_CLOSE;
+    else
+        return GREEN_FONT_COLOR_CODE.."100 %"..FONT_COLOR_CODE_CLOSE;
+    end
+end
+
 function CleanUI_DataStoreUIUpdateCharacterSelection()
     local info = CleanUIDataStoreCharacterFrame.info;
 
@@ -255,7 +264,6 @@ function CleanUI_DataStoreUIUpdateCharacterSelection()
         info.xp_label:Hide();
         info.xp:Hide();
     end
-
  
     -- race/class/pvp
     local classColor = RAID_CLASS_COLORS[baseData.class.englishClass];
@@ -294,6 +302,44 @@ function CleanUI_DataStoreUIUpdateCharacterSelection()
     info.agility:SetText(HIGHLIGHT_FONT_COLOR_CODE..BreakUpLargeNumbers(baseData.stat.agility.base)..FONT_COLOR_CODE_CLOSE);
     info.stamina:SetText(HIGHLIGHT_FONT_COLOR_CODE..BreakUpLargeNumbers(baseData.stat.stamina.base)..FONT_COLOR_CODE_CLOSE);
     info.strength:SetText(HIGHLIGHT_FONT_COLOR_CODE..BreakUpLargeNumbers(baseData.stat.strength.base)..FONT_COLOR_CODE_CLOSE);
+
+    -- professions
+    local professions = CleanUIDataStore.Characters[guid].professions;
+
+    if (professions.prof1.name) then
+        info.profession1_label:SetText(professions.prof1.name..":");
+        info.profession1:SetText(professionsPercentage(professions.prof1.skillLevel, professions.prof1.maxSkillLevel));
+        info.profession1_icon:SetTexture(professions.prof1.icon);
+        info.profession1_icon:SetTexCoord(0.1, 0.9, 0.1, 0.9);
+    end
+
+    if (professions.prof2.name) then
+        info.profession2_label:SetText(professions.prof2.name..":");
+        info.profession2:SetText(professionsPercentage(professions.prof2.skillLevel, professions.prof2.maxSkillLevel));
+        info.profession2_icon:SetTexture(professions.prof2.icon);
+        info.profession2_icon:SetTexCoord(0.1, 0.9, 0.1, 0.9);
+    end
+
+    if (professions.cook.name) then
+        info.cook_label:SetText(professions.cook.name..":");
+        info.cook:SetText(professionsPercentage(professions.cook.skillLevel, professions.cook.maxSkillLevel));
+        info.cook_icon:SetTexture(professions.cook.icon);
+        info.cook_icon:SetTexCoord(0.1, 0.9, 0.1, 0.9);
+   end
+
+    if (professions.fish.name) then
+        info.fish_label:SetText(professions.fish.name..":");
+        info.fish:SetText(professionsPercentage(professions.fish.skillLevel, professions.fish.maxSkillLevel));
+        info.fish_icon:SetTexture(professions.fish.icon);
+        info.fish_icon:SetTexCoord(0.1, 0.9, 0.1, 0.9);
+    end
+
+    if (professions.arch.name) then
+        info.arch_label:SetText(professions.arch.name..":");
+        info.arch:SetText(professionsPercentage(professions.arch.skillLevel, professions.arch.maxSkillLevel));
+        info.arch_icon:SetTexture(professions.arch.icon);
+        info.arch_icon:SetTexCoord(0.1, 0.9, 0.1, 0.9);
+    end
 end
 
 function CleanUIDataStoreCharacter_OnEnter(self)
@@ -360,10 +406,6 @@ function CleanUIDataStoreCharacter_OnEnter(self)
 
     if (professions.prof2.name) then
         GameTooltip:AddDoubleLine(professions.prof2.name..":", HIGHLIGHT_FONT_COLOR_CODE.."("..professions.prof2.skillLevel.."/"..professions.prof2.maxSkillLevel..")"..FONT_COLOR_CODE_CLOSE);
-    end
-
-    if (professions.firstAid.name) then
-        GameTooltip:AddDoubleLine(professions.firstAid.name..":", HIGHLIGHT_FONT_COLOR_CODE.."("..professions.firstAid.skillLevel.."/"..professions.firstAid.maxSkillLevel..")"..FONT_COLOR_CODE_CLOSE);
     end
 
     if (professions.cook.name) then

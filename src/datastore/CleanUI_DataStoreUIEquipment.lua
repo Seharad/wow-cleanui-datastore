@@ -25,8 +25,8 @@ local compareWithItemLink = nil;
 
 function CleanUI_InitDataStoreUIEquipment()
     -- equipment columns
-    local equipNameColumn = CleanUI_DataStoreUI_CreateColumnHeader(CleanUIDataStoreEquipmentFrame, 200, NAME, "EQUIP_NAME", nil);
-    local equipItemsColumn = CleanUI_DataStoreUI_CreateColumnHeader(CleanUIDataStoreEquipmentFrame, 405, ITEMS, "EQUIP_ITEMS", equipNameColumn);
+    local equipNameColumn = CleanUI_DataStoreUI_CreateColumnHeader(CleanUIDataStoreEquipmentFrame, 185, NAME, "EQUIP_NAME", nil);
+    local equipItemsColumn = CleanUI_DataStoreUI_CreateColumnHeader(CleanUIDataStoreEquipmentFrame, 420, ITEMS, "EQUIP_ITEMS", equipNameColumn);
 end
 
 function CleanUI_DataStoreUISortEquipmentBy(sortKey)

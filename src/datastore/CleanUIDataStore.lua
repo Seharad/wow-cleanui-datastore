@@ -377,16 +377,14 @@ function CleanUI_CollectProfessionsData()
     data.arch = {};
     data.fish = {};
     data.cook = {};
-    data.firstAid = {};
 
-    local prof1, prof2, arch, fish, cook, firstAid = GetProfessions();
+    local prof1, prof2, arch, fish, cook = GetProfessions();
 
     CleanUI_CollectProfessionsDataForSkill(data.prof1, prof1);
     CleanUI_CollectProfessionsDataForSkill(data.prof2, prof2);
     CleanUI_CollectProfessionsDataForSkill(data.arch, arch);
     CleanUI_CollectProfessionsDataForSkill(data.fish, fish);
     CleanUI_CollectProfessionsDataForSkill(data.cook, cook);
-    CleanUI_CollectProfessionsDataForSkill(data.firstAid, firstAid);
 end
 
 function CleanUI_CollectProfessionsDataForSkill(data, index)
