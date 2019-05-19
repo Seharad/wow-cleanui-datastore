@@ -42,7 +42,7 @@ function CleanUI_InitDataStoreUI()
         tabButton.Icon:SetTexture(icon);
     end
 
-    CleanUIDataStoreFramePortrait:SetTexture("Interface\\MailFrame\\Mail-Icon");
+    CleanUIDataStoreFramePortrait:SetTexture("Interface\\FriendsFrame\\Battlenet-Portrait");
     CleanUIDataStoreFrameTitleText:SetText("Datastore");
 
     CleanUI_InitDataStoreUICharacters();

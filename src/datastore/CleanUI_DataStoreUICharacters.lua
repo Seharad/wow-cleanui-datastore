@@ -306,26 +306,58 @@ function CleanUI_DataStoreUIUpdateCharacterSelection()
     -- professions
     local professions = CleanUIDataStore.Characters[guid].professions;
 
+    -- first main profession
+
     if (professions.prof1.name) then
         info.profession1_label:SetText(professions.prof1.name..":");
         info.profession1:SetText(professionsPercentage(professions.prof1.skillLevel, professions.prof1.maxSkillLevel));
         info.profession1_icon:SetTexture(professions.prof1.icon);
         info.profession1_icon:SetTexCoord(0.1, 0.9, 0.1, 0.9);
+
+        if (not info.profession1_frame) then
+            info.profession1_frame = CreateFrame("Button");
+            info.profession1_frame:SetPoint("TOPLEFT", info.profession1_label, "TOPLEFT", 0, 0);
+            info.profession1_frame:SetPoint("BOTTOMRIGHT", info.profession1, "BOTTOMRIGHT", 0, 0);
+    
+            info.profession1_frame:EnableMouse(true);
+        end
+    
+        info.profession1_frame:SetScript("OnClick", function() 
+            C_GuildInfo.QueryGuildMemberRecipes(guid, professions.prof1.skillLine);
+        end)
     end
+
+    -- second main profession
 
     if (professions.prof2.name) then
         info.profession2_label:SetText(professions.prof2.name..":");
         info.profession2:SetText(professionsPercentage(professions.prof2.skillLevel, professions.prof2.maxSkillLevel));
         info.profession2_icon:SetTexture(professions.prof2.icon);
         info.profession2_icon:SetTexCoord(0.1, 0.9, 0.1, 0.9);
+
+        if (not info.profession2_frame) then
+            info.profession2_frame = CreateFrame("Button");
+            info.profession2_frame:SetPoint("TOPLEFT", info.profession2_label, "TOPLEFT", 0, 0);
+            info.profession2_frame:SetPoint("BOTTOMRIGHT", info.profession2, "BOTTOMRIGHT", 0, 0);
+    
+            info.profession2_frame:EnableMouse(true);
+        end
+    
+        info.profession2_frame:SetScript("OnClick", function() 
+            C_GuildInfo.QueryGuildMemberRecipes(guid, professions.prof2.skillLine);
+        end)
     end
+
+    -- cooking
 
     if (professions.cook.name) then
         info.cook_label:SetText(professions.cook.name..":");
         info.cook:SetText(professionsPercentage(professions.cook.skillLevel, professions.cook.maxSkillLevel));
         info.cook_icon:SetTexture(professions.cook.icon);
         info.cook_icon:SetTexCoord(0.1, 0.9, 0.1, 0.9);
-   end
+    end
+
+    -- fishing
 
     if (professions.fish.name) then
         info.fish_label:SetText(professions.fish.name..":");
@@ -333,6 +365,8 @@ function CleanUI_DataStoreUIUpdateCharacterSelection()
         info.fish_icon:SetTexture(professions.fish.icon);
         info.fish_icon:SetTexCoord(0.1, 0.9, 0.1, 0.9);
     end
+
+    -- archaeology
 
     if (professions.arch.name) then
         info.arch_label:SetText(professions.arch.name..":");

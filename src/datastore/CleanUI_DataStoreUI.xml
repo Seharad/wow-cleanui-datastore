@@ -77,7 +77,7 @@
         </Anchors>
         <Layers>
             <Layer level="BACKGROUND">
-                <Texture file="Interface\MailFrame\Mail-Icon">
+                <Texture file="Interface\FriendsFrame\Battlenet-Portrait">
                     <Size>
                         <AbsDimension x="21" y="21"/>
                     </Size>
