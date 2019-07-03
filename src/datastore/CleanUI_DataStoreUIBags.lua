@@ -176,6 +176,7 @@ function CleanUI_DataStoreUIUpdateBagsData()
 
             if (act.data.guid == selectedBags) then
                 -- reposition highlight frames
+                CleanUIDataStoreHighlightFrame:ClearAllPoints();
                 CleanUIDataStoreHighlightFrame:SetParent(act);
                 CleanUIDataStoreHighlightFrame:SetPoint("TOPLEFT", act, "TOPLEFT", 0, 0);
                 CleanUIDataStoreHighlightFrame:SetPoint("BOTTOMRIGHT", act, "BOTTOMRIGHT", 0, 0);
