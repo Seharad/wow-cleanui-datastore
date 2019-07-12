@@ -128,6 +128,7 @@ function CleanUI_DataStoreUIUpdateMailData()
             if (act.data.guid == selectedMailCharacter) then
                 -- reposition highlight frames
                 CleanUIDataStoreHighlightFrame:SetParent(act);
+                CleanUIDataStoreHighlightFrame:ClearAllPoints();
                 CleanUIDataStoreHighlightFrame:SetPoint("TOPLEFT", act, "TOPLEFT", 0, 0);
                 CleanUIDataStoreHighlightFrame:SetPoint("BOTTOMRIGHT", act, "BOTTOMRIGHT", 0, 0);
                 CleanUIDataStoreHighlightFrame:Show();

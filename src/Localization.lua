@@ -27,6 +27,8 @@ CUI_DS_WRONG_ITEM_TYPE = "wrong item type";
 BINDING_HEADER_CUI_DS = "DataStore";
 BINDING_NAME_CUI_DS_TOGGLE = "open DataStore";
 
+CUI_DS_ORDER_BY = "Order by";
+
 -- German
 if (GetLocale() == "deDE") then
 
@@ -58,5 +60,7 @@ if (GetLocale() == "deDE") then
 
     BINDING_HEADER_CUI_DS = "DataStore";
     BINDING_NAME_CUI_DS_TOGGLE = "DataStore \195\182ffnen";
+
+    CUI_DS_ORDER_BY = "Sortierung";
 
 end

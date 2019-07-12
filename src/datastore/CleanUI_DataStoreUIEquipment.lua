@@ -16,6 +16,26 @@ Warrior - Cloth, Leather, Mail, Plate (at level 40), Shields
 
 ]]
 
+local slotNames = {
+    "Item level",
+    INVTYPE_HEAD,
+    INVTYPE_NECK,
+    INVTYPE_SHOULDER,
+    INVTYPE_CLOAK,
+    INVTYPE_CHEST,
+    INVTYPE_WRIST,
+    INVTYPE_HAND,
+    INVTYPE_WAIST,
+    INVTYPE_LEGS,
+    INVTYPE_FEET,
+    INVTYPE_FINGER,
+    INVTYPE_FINGER,
+    INVTYPE_TRINKET,
+    INVTYPE_TRINKET,
+    INVTYPE_WEAPONMAINHAND,
+    INVTYPE_WEAPONOFFHAND,
+}
+
 
 local selectedEquipment = nil;
 local sortKeyEquipment = "EQUIP_NAME_ASC";
@@ -23,10 +43,39 @@ local sortKeyEquipment = "EQUIP_NAME_ASC";
 local compareItemLink = nil;
 local compareWithItemLink = nil;
 
+local orderBy = 1;
+
 function CleanUI_InitDataStoreUIEquipment()
     -- equipment columns
     local equipNameColumn = CleanUI_DataStoreUI_CreateColumnHeader(CleanUIDataStoreEquipmentFrame, 185, NAME, "EQUIP_NAME", nil);
     local equipItemsColumn = CleanUI_DataStoreUI_CreateColumnHeader(CleanUIDataStoreEquipmentFrame, 420, ITEMS, "EQUIP_ITEMS", equipNameColumn);
+
+    UIDropDownMenu_Initialize(CleanUIDataStoreEquipmentFrameOrderDropDown, CleanUIDataStoreFrame_OrderDropDown_Initialize);
+end
+
+function CleanUIDataStoreFrame_OrderDropDown_Initialize(self)
+    for i, name in ipairs(slotNames) do
+        local info = UIDropDownMenu_CreateInfo();
+        info.text = name;
+        info.value = i;
+        info.func = function()
+            CleanUIDataStore_SetOrderBy(i);
+        end
+        UIDropDownMenu_AddButton(info);
+    end
+
+    CleanUIDataStore_SetOrderBy(orderBy);
+end
+
+function CleanUIDataStore_SetOrderBy(i)
+    orderBy = i;
+
+    if (CleanUIDataStoreEquipmentFrameOrderDropDown) then
+        UIDropDownMenu_SetSelectedValue(CleanUIDataStoreEquipmentFrameOrderDropDown, orderBy);
+        CleanUIDataStoreEquipmentFrameOrderDropDownText:SetText(slotNames[orderBy]);
+    end
+
+    CleanUI_DataStoreUIUpdateEquipmentData();
 end
 
 function CleanUI_DataStoreUISortEquipmentBy(sortKey)
@@ -46,9 +95,9 @@ function CleanUI_DataStoreUI_SortEquipment(a, b)
     end
 
     if (sortKeyEquipment == "EQUIP_ITEMS_ASC") then
-        return a.ail < b.ail;
+        return a.itemLevel[orderBy] < b.itemLevel[orderBy];
     elseif  (sortKeyEquipment == "EQUIP_ITEMS_DESC") then
-        return a.ail > b.ail;
+        return a.itemLevel[orderBy] > b.itemLevel[orderBy];
     end
 
     return false;
@@ -60,7 +109,7 @@ function CleanUI_DataStoreUIUpdateEquipmentData()
     -- collect data
     local characters = {};
 
-    local ilevel, icount, itemLink;
+    local actItemLevel, ilevel, icount, itemLink;
 
     for guid, store in pairs(CleanUIDataStore.Characters) do
         local data = {};
@@ -69,16 +118,24 @@ function CleanUI_DataStoreUIUpdateEquipmentData()
         data.race = store.baseData.race;
         data.class = store.baseData.class.englishClass;
 
+        data.itemLevel = {};
+
         ilevel = 0;
         icount = 0;
         for pos, equipment in pairs(store.equipment) do
             if (equipment.itemLink) then
+                actItemLevel = CleanUI_GetActualItemLevel(equipment.itemLink) or 0;
                 icount = icount + 1;
-                ilevel = ilevel + (CleanUI_GetActualItemLevel(equipment.itemLink) or 0);
+                ilevel = ilevel + actItemLevel;
+
+                data.itemLevel[pos + 1] = actItemLevel;
+            else
+                actItemLevel = 0;
+                data.itemLevel[pos + 1] = 0;
             end
         end
 
-        data.ail = ilevel/icount;
+        data.itemLevel[1] = ilevel/icount;
 
         if (store.equipment and #(store.equipment) > 0) then
             data.equipment = {};
@@ -149,7 +206,7 @@ function CleanUI_DataStoreUIUpdateEquipmentData()
                         itemButton.itemLevel:SetJustifyH("RIGHT");
                     end
 
-                    adjustedItemLevel = CleanUI_GetActualItemLevel(itemButton.itemLink);
+                    adjustedItemLevel = CleanUI_GetActualItemLevel(itemButton.itemLink) or 0;
                     itemButton.itemLevel:SetText(ORANGE_FONT_COLOR_CODE..adjustedItemLevel..FONT_COLOR_CODE_CLOSE);
 
                     -- rarity color
@@ -206,7 +263,7 @@ function CleanUIDataStoreEquipment_OnEnter(self)
     GameTooltip:AddLine(" ");
 
     -- item data
-    GameTooltip:AddDoubleLine("aIL:", HIGHLIGHT_FONT_COLOR_CODE..string.format("%.1f", self.data.ail)..FONT_COLOR_CODE_CLOSE);
+    GameTooltip:AddDoubleLine("aIL:", HIGHLIGHT_FONT_COLOR_CODE..string.format("%.1f", self.data.itemLevel[1])..FONT_COLOR_CODE_CLOSE);
 
     GameTooltip:Show();
 end

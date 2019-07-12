@@ -182,6 +182,7 @@ function CleanUI_DataStoreUIUpdateCharacterData()
             if (act.data.guid == selectedCharacter) then
                 -- reposition highlight frames
                 CleanUIDataStoreHighlightFrame:SetParent(act);
+                CleanUIDataStoreHighlightFrame:ClearAllPoints();
                 CleanUIDataStoreHighlightFrame:SetPoint("TOPLEFT", act, "TOPLEFT", 0, 0);
                 CleanUIDataStoreHighlightFrame:SetPoint("BOTTOMRIGHT", act, "BOTTOMRIGHT", 0, 0);
                 CleanUIDataStoreHighlightFrame:Show();

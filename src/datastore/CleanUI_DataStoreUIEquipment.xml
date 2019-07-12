@@ -331,6 +331,33 @@
                     </Layer>
                 </Layers>
 		    </Frame>
+            <Frame name="$parentOrderDropDown" parentKey="order" inherits="UIDropDownMenuTemplate">
+                <Size>
+                    <AbsDimension x="200" y="20"/>
+                </Size>
+                <Anchors>
+                    <Anchor point="TOPLEFT" x="125" y="30"/>
+                </Anchors>
+                <Layers>
+                    <Layer level="ARTWORK">
+                        <FontString parentKey="label" inherits="GameFontNormalLeft" nonspacewrap="true" maxLines="1" justifyH="LEFT" justifyV="TOP">
+                            <Anchors>
+                                <Anchor point="RIGHT" relativeTo="$parent" relativePoint="LEFT">
+                                    <Offset>
+                                        <AbsDimension x="-5" y="3"/>
+                                    </Offset>
+                                </Anchor>
+                            </Anchors>
+                        </FontString>
+                    </Layer>
+                </Layers>
+                <Scripts>
+                    <OnLoad>
+                        self.label:SetText(CUI_DS_ORDER_BY..":");    
+                        UIDropDownMenu_SetWidth(self, 150);
+                    </OnLoad>
+                </Scripts>
+            </Frame> 
         </Frames>
         
         <Scripts>
