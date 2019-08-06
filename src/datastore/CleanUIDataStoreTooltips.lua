@@ -2,7 +2,12 @@ local data = nil;
 
 function CleanUI_DataStore_Tooltip_OnTooltipSetItem(tooltip, ...)
     local name, link = tooltip:GetItem();
-    CleanUI_DataStore_ProcessItemTooltip(tooltip, name, link);
+    
+    if (name and link) then
+        CleanUI_DataStore_ProcessItemTooltip(tooltip, name, link);
+    else
+        data = nil;
+    end
 end
 
 function CleanUI_DataStore_Tooltip_SetCurrencyToken(tooltip, index)
@@ -43,7 +48,8 @@ function CleanUI_DataStore_Tooltip_AppendItemData(tooltip, link)
     
     --cui_debug(itemId)
     -- TODO exceptions konfigurierbar machen
-    if (itemId == 6948 -- Ruhestein
+    if (not itemId
+        or itemId == 6948 -- Ruhestein
         or itemId == 110560 -- Garnisonsruhestein
         or itemId == 140192 -- Dalaran Ruhestein
         or itemId == 109167 -- Findels Plünderang
