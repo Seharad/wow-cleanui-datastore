@@ -114,41 +114,46 @@ function CleanUI_DataStoreUIUpdateEquipmentData()
     for guid, store in pairs(CleanUIDataStore.Characters) do
         local data = {};
         data.guid = guid;
-        data.name = store.baseData.name;
-        data.race = store.baseData.race;
-        data.class = store.baseData.class.englishClass;
+
+        if (store.baseData ~= nil) then
+            data.name = store.baseData.name;
+            data.race = store.baseData.race;
+            data.class = store.baseData.class.englishClass;
+        end
 
         data.itemLevel = {};
 
-        ilevel = 0;
-        icount = 0;
-        for pos, equipment in pairs(store.equipment) do
-            if (equipment.itemLink) then
-                actItemLevel = CleanUI_GetActualItemLevel(equipment.itemLink) or 0;
-                icount = icount + 1;
-                ilevel = ilevel + actItemLevel;
+        if (store.equipment ~= nil) then
+            ilevel = 0;
+            icount = 0;
+            for pos, equipment in pairs(store.equipment) do
+                if (equipment.itemLink) then
+                    actItemLevel = CleanUI_GetActualItemLevel(equipment.itemLink) or 0;
+                    icount = icount + 1;
+                    ilevel = ilevel + actItemLevel;
 
-                data.itemLevel[pos + 1] = actItemLevel;
-            else
-                actItemLevel = 0;
-                data.itemLevel[pos + 1] = 0;
+                    data.itemLevel[pos + 1] = actItemLevel;
+                else
+                    actItemLevel = 0;
+                    data.itemLevel[pos + 1] = 0;
+                end
             end
-        end
 
-        data.itemLevel[1] = ilevel/icount;
+            data.itemLevel[1] = ilevel/icount;
 
-        if (store.equipment and #(store.equipment) > 0) then
-            data.equipment = {};
-            for e = 1, 16 do
-                data.equipment[e] = {};
-                data.equipment[e].name = store.equipment[e].name;
-                data.equipment[e].currentDurability = store.equipment[e].currentDurability;
-                data.equipment[e].maximumDurability = store.equipment[e].maximumDurability;
-                data.equipment[e].itemLink = store.equipment[e].itemLink;
+            if (store.equipment and #(store.equipment) > 0) then
+                data.equipment = {};
+                for e = 1, 16 do
+                    data.equipment[e] = {};
+                    data.equipment[e].name = store.equipment[e].name;
+                    data.equipment[e].currentDurability = store.equipment[e].currentDurability;
+                    data.equipment[e].maximumDurability = store.equipment[e].maximumDurability;
+                    data.equipment[e].itemLink = store.equipment[e].itemLink;
+                end
             end
-        end
 
-        tinsert(characters, data);
+            tinsert(characters, data);
+        end
     end
 
     table.sort(characters, function(a,b) return CleanUI_DataStoreUI_SortEquipment(a, b) end);

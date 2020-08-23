@@ -210,10 +210,12 @@ function CleanUI_DataStore_Tooltip_CollectItemData(link)
         data.characters[charname].mail = 0;
 
         -- equipped
-        for pos, equipment in pairs(store.equipment) do
-            if (equipment.itemLink and CleanUI_DataStore_GetIdFromLink(equipment.itemLink) == CleanUI_DataStore_GetIdFromLink(link)) then
-                data.characters[charname].equipped = data.characters[charname].equipped + 1;
-                data.count = data.count + 1;
+        if (store.equipment) then
+            for pos, equipment in pairs(store.equipment) do
+                if (equipment.itemLink and CleanUI_DataStore_GetIdFromLink(equipment.itemLink) == CleanUI_DataStore_GetIdFromLink(link)) then
+                    data.characters[charname].equipped = data.characters[charname].equipped + 1;
+                    data.count = data.count + 1;
+                end
             end
         end
 

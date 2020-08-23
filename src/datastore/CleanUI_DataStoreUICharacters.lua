@@ -112,20 +112,22 @@ function CleanUI_DataStoreUIUpdateCharacterData()
         data.money = store.baseData.money;
         data.saveTime = store.baseData.saveTime;
 
-        ilevel = 0;
-        icount = 0;
-        for pos, equipment in pairs(store.equipment) do
-            if (equipment.itemLink) then
-                icount = icount + 1;
-                ilevel = ilevel + (CleanUI_GetActualItemLevel(equipment.itemLink) or 0);
+        if (store.equipment ~= nil) then
+            ilevel = 0;
+            icount = 0;
+            for pos, equipment in pairs(store.equipment) do
+                if (equipment.itemLink) then
+                    icount = icount + 1;
+                    ilevel = ilevel + (CleanUI_GetActualItemLevel(equipment.itemLink) or 0);
+                end
             end
+
+            data.ail = ilevel/icount;
+
+            data.professions = store.professions;
+
+            tinsert(characters, data);
         end
-
-        data.ail = ilevel/icount;
-
-        data.professions = store.professions;
-
-        tinsert(characters, data);
     end
 
     table.sort(characters, function(a,b) return CleanUI_DataStoreUI_SortCharacters(a, b) end);

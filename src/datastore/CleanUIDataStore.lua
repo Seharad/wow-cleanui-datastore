@@ -351,12 +351,12 @@ function CleanUI_CollectCurrencyData()
 
     CleanUIDataStore.Characters[guid].currency = {};
 
-    local listSize = GetCurrencyListSize();    
+    local listSize = C_CurrencyInfo.GetCurrencyListSize();    
     local data;
     
     for i = 1, listSize do
         data = {};
-        data.name, data.isHeader, data.isExpanded, data.isUnused, data.isWatched, data.count, icon, data.maximum, data.hasWeeklyLimit, data.currentWeeklyAmount = GetCurrencyListInfo(i);
+        data.name, data.isHeader, data.isExpanded, data.isUnused, data.isWatched, data.count, icon, data.maximum, data.hasWeeklyLimit, data.currentWeeklyAmount = C_CurrencyInfo.GetCurrencyListInfo(i);
         if (data.count and data.count > 0 and not data.isUnused) then
             CleanUIDataStore.Characters[guid].currency[data.name] = data;
         end
@@ -894,17 +894,19 @@ function CleanUIDS_SearchByName_CollectData(name)
         charname = store.baseData.name;
 
         -- equipped
-        for pos, equipment in pairs(store.equipment) do
-            if (equipment.itemLink) then
-                foundName = GetItemInfo(equipment.itemLink);
+        if (store.equipment) then
+            for pos, equipment in pairs(store.equipment) do
+                if (equipment.itemLink) then
+                    foundName = GetItemInfo(equipment.itemLink);
 
-                if (foundName and findPatternInString(foundName, name)) then
-                    id = CleanUI_DataStore_GetIdFromLink(equipment.itemLink);
+                    if (foundName and findPatternInString(foundName, name)) then
+                        id = CleanUI_DataStore_GetIdFromLink(equipment.itemLink);
 
-                    if (data[id]) then
-                        data[id] = data[id] + 1;
-                    else
-                        data[id] = 1;
+                        if (data[id]) then
+                            data[id] = data[id] + 1;
+                        else
+                            data[id] = 1;
+                        end
                     end
                 end
             end
