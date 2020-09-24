@@ -23,7 +23,7 @@ function CleanUI_DataStore_Tooltip_SetCurrencyTokenByID(tooltip, id)
 end
 
 function CleanUI_DataStore_Tooltip_SetBackpackToken(button, index)
-    local name = GetBackpackCurrencyInfo(index);
+    local name = C_CurrencyInfo.GetBackpackCurrencyInfo(index);
     CleanUI_DataStore_ProcessCurrencyTooltipByName(name);
 end
 
@@ -276,7 +276,7 @@ function CleanUI_DataStore_Tooltip_CollectItemData(link)
 end
 
 function CleanUI_DataStore_ProcessCurrencyTooltip(id)
-    local name = GetCurrencyListInfo(id);
+    local name = C_CurrencyInfo.GetCurrencyListInfo(id);
     CleanUI_DataStore_ProcessCurrencyTooltipByName(name);
 end
 
