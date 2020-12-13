@@ -7,7 +7,7 @@ StaticPopupDialogs["CLEANUI_CHECK_MAILBOX"] = {
     OnAccept = function()
         CleanUI_DataStoreGotoMail()
     end,
-    timeout = 0,
+    timeout = 8,
     whileDead = true,
     hideOnEscape = true,
     preferredIndex = 3,  -- avoid some UI taint, see http://www.wowace.com/announcements/how-to-avoid-some-ui-taint/
