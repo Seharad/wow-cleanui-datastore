@@ -418,8 +418,9 @@ function CleanUIDataStoreCharacter_OnEnter(self)
     local powerColor = PowerBarColor[baseData.powerTypeString];
     local powerColorText = string.format("ff%.2x%.2x%.2x", powerColor.r * 255, powerColor.g * 255, powerColor.b * 255);
     GameTooltip:AddDoubleLine(HEALTH..":", "|cff00ff00"..BreakUpLargeNumbers(baseData.health)..FONT_COLOR_CODE_CLOSE);
-    GameTooltip:AddDoubleLine(PowerBarLabel[baseData.powerTypeString]..":", "|c"..powerColorText..BreakUpLargeNumbers(baseData.power)..FONT_COLOR_CODE_CLOSE);
-
+    if (PowerBarLabel[baseData.powerTypeString] ~= nil) then
+        GameTooltip:AddDoubleLine(PowerBarLabel[baseData.powerTypeString]..":", "|c"..powerColorText..BreakUpLargeNumbers(baseData.power)..FONT_COLOR_CODE_CLOSE);
+    end
     GameTooltip:AddLine(" ");
 
     -- stats
