@@ -104,23 +104,6 @@ function CleanUIDataStore_HideTooltip(self)
     GameTooltip:FadeOut();
 end
 
-function CleanUIDataStore_MinimapButton_DraggingFrame_OnUpdate()
-
-    local xpos,ypos = GetCursorPosition();
-    local xmin,ymin = Minimap:GetLeft(), Minimap:GetBottom();
-
-    xpos = xmin-xpos/UIParent:GetScale()+70;
-    ypos = ypos/UIParent:GetScale()-ymin-70;
-
-    CleanUIDataStore.minimappos = math.deg(math.atan2(ypos,xpos));
-    CleanUIDataStore_MinimapButton_Reposition();
-end
-
-function  CleanUIDataStore_MinimapButton_Reposition()
-    CleanUIDataStore_MinimapButton:SetPoint("TOPLEFT", "Minimap", "TOPLEFT",
-        52-(80*cos(CleanUIDataStore.minimappos)), (80*sin(CleanUIDataStore.minimappos))-52);
-end
-
 function CleanUIDataStore_ToggleCategory(category)
     if (not CleanUIDataStoreFrame:IsVisible()) then
         return;

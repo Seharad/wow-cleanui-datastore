@@ -13,7 +13,7 @@ function CleanUI_InitDataStoreSearch()
 
 
 
-    CleanUIDataStoreSearchFramePortrait:SetTexture("Interface\\MailFrame\\Mail-Icon");
+    CleanUIDataStoreSearchFramePortrait:SetTexture("Interface\\FriendsFrame\\Battlenet-Portrait");
     CleanUIDataStoreSearchFrameTitleText:SetText("Search");
 
     CleanUI_DataStoreSearch_OnUpdate();

@@ -80,6 +80,8 @@ function CleanUI_InitDataStore()
 
     CleanUI_StartDelay(3, CleanUI_RegisterDataStoreEvents);
     CleanUI_StartDelay(3, CleanUI_DataStoreHookEvents);
+
+    CUIDataStoreMicroButton.FlashContent:SetDesaturated(1);
 end
 
 function CleanUI_DataStoreCheckData()
@@ -124,22 +126,16 @@ function CleanUI_DataStoreGotoMail()
     CleanUIDataStore_ToggleCategory(2);
 end
 
-function CleanUIDataStore_MouseOver(button)
-    CleanUIDataStore_ShowTooltip(button);
+function CleanUIDataStore_MouseOver(self)
+    GameTooltip:SetOwner(self, "ANCHOR_RIGHT");
+	GameTooltip_SetTitle(GameTooltip, "Datastore");
+    self.FlashContent:SetVertexColor(1, 1, 0);
+    GameTooltip:Show();
 end
 
-function CleanUIDataStore_MouseOut(button)
-    GameTooltip:FadeOut();
-end
-
-function CleanUIDataStore_ShowTooltip(button)
-    GameTooltip_SetDefaultAnchor(GameTooltip, button);
-    CleanUIDataStore_CreateTooltip(GameTooltip);
-end
-
-function CleanUIDataStore_CreateTooltip(tooltip)
-    tooltip:SetText("|cffffffffDataStore|r");
-    tooltip:Show();
+function CleanUIDataStore_MouseOut(self)
+    self.FlashContent:SetVertexColor(1, 1, 1);
+    GameTooltip:Hide();
 end
 
 function CleanUI_RegisterDataStoreEvents()

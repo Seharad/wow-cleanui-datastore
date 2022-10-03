@@ -1,6 +1,28 @@
 <Ui xmlns="http://www.blizzard.com/wow/ui/" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://www.blizzard.com/wow/ui/
 ..\FrameXML\UI.xsd">
 
+	<Button name="CUIDataStoreMicroButton" inherits="MainMenuBarMicroButton" parent="UIParent">
+		<Anchors>
+			<Anchor point="BOTTOMRIGHT" relativeTo="CharacterMicroButton" relativePoint="BOTTOMLEFT" x="-5" y="0"/>
+		</Anchors>
+		<Layers>
+			<Layer level="OVERLAY">
+				<Texture parentKey="FlashContent" file="Interface\FriendsFrame\Battlenet-Portrait" alphaMode="ADD"/>
+			</Layer>
+		</Layers>
+		<Scripts>
+            <OnClick>
+                CleanUIDataStore_ToggleDataStoreUI();
+            </OnClick>
+            <OnEnter>
+                CleanUIDataStore_MouseOver(self);
+            </OnEnter>
+            <OnLeave>
+                CleanUIDataStore_MouseOut(self);
+            </OnLeave>
+		</Scripts>
+	</Button>
+
     <Frame name="CUIDataStoreTabTemplate" enableMouse="true" virtual="true">
         <Size x="42" y="50"/>
         <Anchors>
@@ -65,76 +87,6 @@
             </CheckButton>
         </Frames>
     </Frame>
-
-    
-
-    <Button name="CleanUIDataStore_MinimapButton" parent="Minimap" enableMouse="true" movable="true" hidden="false">
-        <Size>
-            <AbsDimension x="33" y="33"/>
-        </Size>
-        <Anchors>
-            <Anchor point="TOPLEFT"/>
-        </Anchors>
-        <Layers>
-            <Layer level="BACKGROUND">
-                <Texture file="Interface\FriendsFrame\Battlenet-Portrait">
-                    <Size>
-                        <AbsDimension x="21" y="21"/>
-                    </Size>
-                    <Anchors>
-                        <Anchor point="TOPLEFT">
-                            <Offset>
-                                <AbsDimension x="6" y="-5"/>
-                            </Offset>
-                        </Anchor>
-                    </Anchors>
-                </Texture>
-            </Layer>
-            <Layer level="OVERLAY">
-                <Texture file="Interface\Minimap\MiniMap-TrackingBorder">
-                    <Size>
-                        <AbsDimension x="56" y="56"/>
-                    </Size>
-                    <Anchors>
-                        <Anchor point="TOPLEFT"/>
-                    </Anchors>
-                </Texture>
-            </Layer>
-        </Layers>
-        <Frames>
-            <Frame name="CleanUIDataStore_MinimapButton_DraggingFrame" hidden="true">
-                <Scripts>
-                    <OnUpdate>
-                        CleanUIDataStore_MinimapButton_DraggingFrame_OnUpdate();
-                    </OnUpdate>
-                </Scripts>
-            </Frame>
-        </Frames>
-        <HighlightTexture alphaMode="ADD" file="Interface\Minimap\UI-Minimap-ZoomButton-Highlight"/>
-        <Scripts>
-            <OnLoad>
-                self:RegisterForClicks("LeftButtonUp","RightButtonUp");
-                self:RegisterForDrag("LeftButton","RightButton");       
-            </OnLoad>
-            <OnDragStart>
-                self:LockHighlight();
-                CleanUIDataStore_MinimapButton_DraggingFrame:Show();
-            </OnDragStart>
-            <OnDragStop>
-                self:UnlockHighlight();
-                CleanUIDataStore_MinimapButton_DraggingFrame:Hide();
-            </OnDragStop>
-            <OnClick>
-                CleanUIDataStore_ToggleDataStoreUI();
-            </OnClick>
-            <OnEnter>
-                CleanUIDataStore_MouseOver(self);
-            </OnEnter>
-            <OnLeave>
-                CleanUIDataStore_MouseOut(self);
-            </OnLeave>
-        </Scripts>
-    </Button>
       
     <Frame name="CleanUIDataStoreFrame" toplevel="true" parent="UIParent" hidden="true" inherits="ButtonFrameTemplate">
         <Size x="650" y="550"/>
