@@ -7,7 +7,6 @@
         </Size>
         <Scripts>
             <OnLoad>
-                CleanUI_SetBackdrop(self); 
                 self:RegisterForClicks("AnyUp");
             </OnLoad>
             <OnEnter>
@@ -18,7 +17,7 @@
             </OnLeave>
         </Scripts>
 
-        <NormalTexture urgency="5" file="Interface\Buttons\UI-MinusButton-UP">
+        <NormalTexture file="Interface\Buttons\UI-MinusButton-UP">
             <Size>
                 <AbsDimension x="16" y="16" />
             </Size>

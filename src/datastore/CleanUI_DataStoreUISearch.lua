@@ -2,7 +2,6 @@ local foundData = {};
 
 function CleanUI_InitDataStoreSearch()
     local searchFrame = CreateFrame("Frame", "CleanUIDataStoreSearchFrame", CleanUIDataStoreFrame, "CleanUIDataStoreSearchFrameTemplate");
-    CleanUI_SetBackdrop(searchFrame);
     searchFrame:SetSize(265, 550);
     searchFrame:ClearAllPoints();
     searchFrame:SetPoint("BOTTOMLEFT", CleanUIDataStoreFrame, "BOTTOMRIGHT", 60, 0);

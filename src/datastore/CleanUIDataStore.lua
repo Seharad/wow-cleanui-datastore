@@ -173,7 +173,7 @@ end
 
 function CleanUI_DataStoreHookEvents()
     hooksecurefunc("ToggleCharacter", CleanUI_CollectCharacterData);
-    hooksecurefunc("ContainerFrame_Update", CleanUI_CollectBagData);  
+    hooksecurefunc("ContainerFrame_UpdateAll", CleanUI_CollectBagData);  
     hooksecurefunc("BankFrame_ShowPanel", CleanUI_CollectBagData);  
 
     GameTooltip:HookScript("OnTooltipSetItem", CleanUI_DataStore_Tooltip_OnTooltipSetItem);

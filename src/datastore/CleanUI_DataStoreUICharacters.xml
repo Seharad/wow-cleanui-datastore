@@ -35,7 +35,7 @@
 		            </OnClick>
 		        </Scripts>
             
-		        <NormalTexture urgency="5" file="Interface\RAIDFRAME\ReadyCheck-NotReady">
+		        <NormalTexture file="Interface\RAIDFRAME\ReadyCheck-NotReady">
 		            <Size>
 		                <AbsDimension x="20" y="20"/>
 		            </Size>
