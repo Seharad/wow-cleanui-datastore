@@ -161,6 +161,7 @@ function CleanUI_RegisterDataStoreEvents()
     frame:RegisterEvent("TRADE_UPDATE");
 
     frame:RegisterEvent("MAIL_INBOX_UPDATE");
+    frame:RegisterEvent("ADDON_ACTION_FORBIDDEN");
 
     --frame:RegisterAllEvents();
 
@@ -181,9 +182,14 @@ function CleanUI_DataStoreHookEvents()
     hooksecurefunc(GameTooltip, "SetBackpackToken", CleanUI_DataStore_Tooltip_SetBackpackToken);
 end
 
-function CleanUI_DataStoreOnEvent(self, event, ...)    
+function CleanUI_DataStoreOnEvent(self, event, ...)  
+
     if (event == "ADDON_LOADED") then
         local addonName = ...;
+    end  
+    
+    if (event == "ADDON_ACTION_FORBIDDEN") then
+        -- cui_debug("Forbidden", ...)
     end
         
     if (event == "PLAYER_LEVEL_UP" or
