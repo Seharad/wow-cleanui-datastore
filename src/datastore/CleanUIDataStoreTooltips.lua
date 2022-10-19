@@ -14,14 +14,6 @@ function CleanUI_DataStore_Tooltip_SetCurrencyToken(tooltip, index)
     CleanUI_DataStore_ProcessCurrencyTooltip(index);
 end
 
-function CleanUI_DataStore_Tooltip_SetCurrencyByID(tooltip, id)
-    --CleanUI_DataStore_ProcessCurrencyTooltip(tooltip, id);
-end
-
-function CleanUI_DataStore_Tooltip_SetCurrencyTokenByID(tooltip, id)
-    --CleanUI_DataStore_ProcessCurrencyTooltip(tooltip, id);
-end
-
 function CleanUI_DataStore_Tooltip_SetBackpackToken(button, index)
     local name = C_CurrencyInfo.GetBackpackCurrencyInfo(index);
     CleanUI_DataStore_ProcessCurrencyTooltipByName(name);
@@ -29,10 +21,7 @@ end
 
 function CleanUI_DataStore_ProcessItemTooltip(tooltip, name, link)
     if (link) then
-        if (not data or CleanUI_DataStore_GetIdFromLink(link) ~= CleanUI_DataStore_GetIdFromLink(data.link)) then
-            CleanUI_DataStore_Tooltip_CollectItemData(link);
-        end
-
+        CleanUI_DataStore_Tooltip_CollectItemData(link);
         CleanUI_DataStore_Tooltip_AppendItemData(tooltip, link);
     else
         data = nil;
@@ -46,7 +35,8 @@ function CleanUI_DataStore_Tooltip_AppendItemData(tooltip, link)
 
     local itemId = CleanUI_DataStore_GetIdFromLink(link);
     
-    --cui_debug(itemId)
+    -- cui_debug(itemId)
+
     -- TODO exceptions konfigurierbar machen
     if (not itemId
         or itemId == 6948 -- Ruhestein
@@ -184,6 +174,8 @@ function CleanUI_DataStore_Tooltip_AppendItemData(tooltip, link)
 
     tooltip:AddLine(" ");
     tooltip:AddDoubleLine(CUI_DS_COUNT_TOTAL..":", data.count);
+
+    tooltip:Show();
 end
 
 function CleanUI_DataStore_Tooltip_CollectItemData(link)

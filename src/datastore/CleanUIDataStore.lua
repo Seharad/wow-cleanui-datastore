@@ -173,13 +173,7 @@ function CleanUI_DataStoreHookEvents()
     hooksecurefunc("ContainerFrame_UpdateAll", CleanUI_CollectBagData);  
     hooksecurefunc("BankFrame_ShowPanel", CleanUI_CollectBagData);  
 
-    GameTooltip:HookScript("OnTooltipSetItem", CleanUI_DataStore_Tooltip_OnTooltipSetItem);
-    ItemRefTooltip:HookScript("OnTooltipSetItem", CleanUI_DataStore_Tooltip_OnTooltipSetItem);
-    
-    hooksecurefunc(GameTooltip, "SetCurrencyToken", CleanUI_DataStore_Tooltip_SetCurrencyToken);
-    hooksecurefunc(GameTooltip, "SetCurrencyByID", CleanUI_DataStore_Tooltip_SetCurrencyByID);
-    hooksecurefunc(GameTooltip, "SetCurrencyTokenByID", CleanUI_DataStore_Tooltip_SetCurrencyTokenByID);
-    hooksecurefunc(GameTooltip, "SetBackpackToken", CleanUI_DataStore_Tooltip_SetBackpackToken);
+    hooksecurefunc(GameTooltip, "SetBagItem", CleanUI_DataStore_Tooltip_OnTooltipSetItem);
 end
 
 function CleanUI_DataStoreOnEvent(self, event, ...)  
@@ -502,7 +496,7 @@ function CleanUI_CollectBagData()
     data.bagitems = {};
     for id = 0, 4 do
         numberOfSlots, numberOfFreeSlots = CleanUI_AddBagData(id, _G["ContainerFrame"..(id + 1)], data.bagitems);
-        bagName = GetBagName(id);
+        bagName = C_Container.GetBagName(id);
         CleanUI_AddBagUsage(numberOfSlots, numberOfFreeSlots, bagName, data.usage, "ContainerFrame"..(id + 1));
     end
 
@@ -566,23 +560,23 @@ function CleanUI_AddBagUsage(numberOfSlots, numberOfFreeSlots, bagName, data, id
 end
 
 function CleanUI_AddBagData(id, container, data)
-    local numberOfSlots, numberOfFreeSlots, itemLink, itemName, itemTexture, itemCount;
+    local numberOfSlots, numberOfFreeSlots, itemLink, itemName, itemInfo;
 
     if (container) then
-        numberOfSlots = GetContainerNumSlots(id);
-        numberOfFreeSlots = GetContainerNumFreeSlots(id);
+        numberOfSlots = C_Container.GetContainerNumSlots(id);
+        numberOfFreeSlots = C_Container.GetContainerNumFreeSlots(id);
 
         for slot=1, numberOfSlots, 1 do
-            itemLink = GetContainerItemLink(id, slot);
+            itemLink = C_Container.GetContainerItemLink(id, slot);
 
             if (itemLink) then
-                itemTexture, itemCount = GetContainerItemInfo(id, slot);
+                itemInfo = C_Container.GetContainerItemInfo(id, slot);
 
                 if (data[itemLink]) then
-                    data[itemLink].itemCount = data[itemLink].itemCount + itemCount;
+                    data[itemLink].itemCount = data[itemLink].itemCount + itemInfo.stackCount;
                 else
                     data[itemLink] = {};
-                    data[itemLink].itemCount = itemCount;
+                    data[itemLink].itemCount = itemInfo.stackCount;
                 end
             end
         end

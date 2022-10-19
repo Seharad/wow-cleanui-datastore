@@ -414,7 +414,7 @@ function CleanUI_DataStoreUIUpdateBagItemData()
                     itemButton.qualityBorder:SetVertexColor(r, g, b);
 
                     -- count
-                    count = act.data.itemCount;
+                    count = act.data.itemCount or 0;
 
                     if (count > 1) then
                         itemButton.Count:SetText(""..count);
