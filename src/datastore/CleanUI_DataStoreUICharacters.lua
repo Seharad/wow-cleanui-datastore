@@ -1,5 +1,5 @@
 -- localized names
-PowerBarLabel = {};
+local PowerBarLabel = {};
 PowerBarLabel["MANA"] = MANA;
 PowerBarLabel["RAGE"] = RAGE;
 PowerBarLabel["FOCUS"] = FOCUS;
