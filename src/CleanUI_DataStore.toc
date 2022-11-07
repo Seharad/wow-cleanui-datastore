@@ -5,7 +5,6 @@
 ## Notes: Collects alt data
 ## DefaultState: Enabled
 ## LoadOnDemand: 0
-## OptionalDeps: Masque
 ## SavedVariables: CleanUIDataStore
 ## Dependencies: CleanUI
 
