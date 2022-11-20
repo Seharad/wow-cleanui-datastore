@@ -505,7 +505,7 @@ function CleanUI_CollectBagData()
         data.bankitems = {};
         for id = 5, 11 do
             numberOfSlots, numberOfFreeSlots = CleanUI_AddBagData(id, _G["ContainerFrame"..(id + 1)], data.bankitems);
-            bagName = GetBagName(id);
+            bagName = C_Container.GetBagName(id);
             CleanUI_AddBagUsage(numberOfSlots, numberOfFreeSlots, bagName, data.usage, "ContainerFrame"..(id + 1));
         end
 
