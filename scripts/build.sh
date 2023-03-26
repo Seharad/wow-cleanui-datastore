@@ -1,4 +1,4 @@
 TITLE="CleanUI_DataStore"
-VERSION="10.0.5"
+VERSION="10.0.6"
 
 source ../build/scripts/build.sh
