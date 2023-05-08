@@ -2,6 +2,7 @@
 ## Title: @@title@@
 ## Author: @@author@@
 ## Version: @@version@@
+## IconTexture: Interface\AddOns\CleanUI\images\addon-icon
 ## Notes: Collects alt data
 ## DefaultState: Enabled
 ## LoadOnDemand: 0
